@@ -26,7 +26,6 @@ def rename_current_workspace(i3, e):
    
     i3.command('rename workspace to "%s"' % ws_name)
 
-
 def clear_current_workspace(i3, e):
     focused_workspace = i3.get_tree().find_focused().workspace()
     i3.command('rename workspace to "%s"' % focused_workspace.num)
