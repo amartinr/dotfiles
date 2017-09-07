@@ -213,8 +213,8 @@ client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 ## blank screen
 exec --no-startup-id xset s 180 300
 ## lock screen
-set $lock_command ~/.scripts/i3/i3lock-fancy.sh
-exec --no-startup-id xautolock -time 5 -locker $lock_command
+set $lock_command i3lock-fancy -p -f SFNS-Display-Thin
+exec --no-startup-id xautolock -time 5 -locker "$lock_command"
 bindsym $mod+Shift+x exec $lock_command
 
 ## screenshot
