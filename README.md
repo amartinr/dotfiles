@@ -3,13 +3,12 @@ This is my Arch Linux with i3-gaps setup at work.
 
 # i3 configuration
 ## Requirements
-* i3
+* i3-gaps-git
 * i3ipc-python-git
 * i3lock-fancy-dualmonitors-git
-* polybar
 * termite
 * system-san-francisco-font-git
-* ttf-literation-mono-powerline
+* ttf-dejavu-sans-mono-powerline-git
 * ttf-ionicons
 * ttf-font-awesome
 * rofi
@@ -19,22 +18,21 @@ This is my Arch Linux with i3-gaps setup at work.
 * connman
 * scrot
 * vim-colorschemes
-* vim-airline-git
-* vim-airline-themes-git
+* vim-airline
+* vim-airline-themes
 * vim-promptline-git
-* nord-vim-airline
-* pytmentize
+* pygtmentize
 * pygments-base16
 
 ## Colors
 ### Termite
-Colors based on _Base16 Ocean Dark_ from https://github.com/adnasa/base16-colors/
+X-erosion from terminal sexy
 
 ### Vim
-Colorscheme _darkocean_ from vim-colorschemes and _bubblegum_ airline colors from vim-airline-themes-git
+Colorscheme _0x7A69-dark_ from vim-colorschemes and _term_ airline colors from vim-airline-themes
 
 ### Promptline
-_Nord_, from nord-vim-airline
+_Term_, from vim-airline-themes
 
 ## Screenshots
 ### Clean desktop
