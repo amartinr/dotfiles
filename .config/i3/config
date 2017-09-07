@@ -227,7 +227,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill
 
 ## background
 #exec --no-startup-id feh --bg-fill ~/.wallpapers/arch_linux-wallpaper-2560x1600.jpg
-exec --no-startup-id feh --bg-fill ~/.wallpapers/wallhaven-316935.jpg
+exec --no-startup-id feh --bg-fill ~/.wallpapers/wallnight-323432.jpg
 
 ## composition
 exec --no-startup-id compton -cCGb --inactive-dim 0.2
