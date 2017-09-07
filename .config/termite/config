@@ -15,7 +15,7 @@ cursor_shape = block
 foreground      = #dec4b2
 foreground_bold = #bea492
 cursor          = #bea492
-background      = rgba(24,21,18,0.92)
+background      = rgba(24,21,18,0.95)
 
 # black
 color0  = #332d29
