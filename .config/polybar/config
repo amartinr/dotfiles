@@ -1,0 +1,98 @@
+;==================================================================
+;
+;	To learn more about how to configure polybar go to:
+;		https://github.com/jaagr/polybar/wiki
+;
+;===================================================================
+
+[bar/top]
+monitor = HDMI1
+top = true
+fixed-centered = true
+modules-left = i3
+modules-center = xwindow
+modules-right = network volume date
+background = #1f222d
+foreground = #d1d4e0
+
+font-0 = "Ionicons:size=11;2"
+font-1 = "System San Francisco Display:size=10;2"
+font-2 = "System San Francisco Display:weight=bold:size=10;2:antialias=true"
+font-3 = "FontAwesome:size=10;2"
+
+padding = 1
+module-margin = 1
+
+tray-position = right
+
+line-size = 2
+
+[module/i3]
+type = internal/i3
+enable-scroll = true
+format = <label-state> <label-mode>
+
+label-focused = %name%
+label-focused-foreground = #F2F2F2
+label-focused-background = #656D7D
+label-focused-underline = #F2F2F2
+label-focused-padding = 2
+label-focused-font = 4
+
+label-unfocused = %name%
+label-unfocused-foreground = #828CA1
+label-unfocused-padding = 1
+label-unfocused-font = 4
+
+label-visible = %name%
+label-visible-font = 4
+
+label-urgent = %name%
+label-urgent-foreground = #ee829f
+label-urgent-padding = 1
+label-urgent-font = 4
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
+label-font = 3
+
+[module/network]
+type = internal/network
+interface = eth0
+interval = 3
+
+label-connected = "%{A1:connman-gtk:}%{A}"
+label-disconnected = 
+
+click-left = connman-gtk
+
+[module/volume]
+type = internal/volume
+
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+master-mixer = Master
+
+format-volume = %{A2:pavucontrol &:}<ramp-volume> <label-volume>%{A} 
+format-muted = %{A2:pavucontrol &:}<label-muted>%{A}
+
+label-muted = 
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+
+[module/date]
+type = internal/date
+
+date = %Y-%m-%d
+time = %H:%M
+;time-alt = %d/%m/%Y - %H:%M
+
+label =  %time%
+format = %{A1:gsimplecal &:}<label>%{A}
+
