@@ -1,18 +1,29 @@
-" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
-" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing archlinux.vim since it alters the value of the
-" 'compatible' option.
+"Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages.
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'chrisbra/Colorizer.git'
+
+call vundle#end()
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+
 runtime! archlinux.vim
-
-" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
-" Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
-" and configure vim to your own liking!
 
 " do not load defaults if ~/.vimrc is missing
 "let skip_defaults_vim=1
@@ -27,44 +38,23 @@ if has("autocmd")
 endif
 
 " For everything else, use a tab width of 4 space chars.
-set tabstop=4       " The width of a TAB is set to 4.
-                    " Still it is a \t. It is just that
-                    " Vim will interpret it to be having
-                    " a width of 4.
-set shiftwidth=4    " Indents will have a width of 4.
-set softtabstop=4   " Sets the number of columns for a TAB.
-set expandtab       " Expand TABs to spaces.
+set tabstop=4		" The width of a TAB is set to 4.
+					" Still it is a \t. It is just that
+					" Vim will interpret it to be having
+					" a width of 4.
+set shiftwidth=4	" Indents will have a width of 4.
+set softtabstop=4	" Sets the number of columns for a TAB.
+set expandtab		" Expand TABs to spaces.
 
-" Dark background
+" colors
 set bg=dark
 set t_Co=256
-syntax on
+colorscheme darkocean
+syntax enable
 
-"colorscheme base16-brewer
-"colorscheme ChocolateLiquor
-"colorscheme Dark
-colorscheme 0x7A69_dark
-"let g:gruvbox_contrast_dark = 'soft'
+"set cursorline
 
 " Airline
 set laststatus=2
-set noshowmode
+let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'term'
-"let g:airline_theme = 'base16_bright'
-
-"if !exists('g:airline_symbols')
-"    let g:airline_symbols = {}
-"endif
-"let g:airline_symbols.space = "\ua0"
-
-" vundler
-set nocompatible
-filetype off
-
-call vundle#rc()
-
-" plugins
-Plugin 'chrisbra/Colorizer.git'
-
-filetype plugin indent on

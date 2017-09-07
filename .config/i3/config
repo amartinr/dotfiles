@@ -3,9 +3,9 @@
 set $mod Mod1
 
 ## font
-font pango:FontAwesome 10
+#font pango:Ionicons 10
+#font pango:FontAwesome 10
 font pango:System San Francisco Display 10
-#font pango: WunconSiji 10
 
 floating_modifier $mod
 hide_edge_borders both
@@ -65,7 +65,6 @@ bindsym $mod+Control+ntilde workspace next
 bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
 
-
 # split in horizontal orientation
 bindsym $mod+h split h
 
@@ -86,16 +85,26 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
 
+set $workspace1 1: 
+set $workspace2 2: 
+set $workspace3 3: 
+
 # switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
 bindsym $mod+6 workspace number 6
@@ -105,9 +114,9 @@ bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
 bindsym $mod+Shift+6 move container to workspace number 6
@@ -150,95 +159,91 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ## bar colors
-set $bar_separator #362c25
-set $bar_bg #2d1f20
-set $bar_statusline #e0d4d1
+set $bar_separator #252936
+set $bar_bg #1f222d
+set $bar_statusline #d1d4e0
 
 ## workspace colors
-set $ws_focused_border #7d6965
-set $ws_focused_bg #7d6965
-set $ws_focused_text #f2f2f2
+set $ws_focused_border #1f222d
+set $ws_focused_bg #1f222d
+set $ws_focused_text #d1d4e0
 
-set $ws_active_border #2d1f20
-set $ws_active_bg #362c25
-set $ws_active_text #7d6965
+set $ws_active_border #1f222d
+set $ws_active_bg #252936
+set $ws_active_text #656D7D
 
-set $ws_inactive_border #2d1f20
-set $ws_inactive_bg #2d1f20
-set $ws_inactive_text #7d6965
+set $ws_inactive_border #1f222d
+set $ws_inactive_bg #1f222d
+set $ws_inactive_text #828CA1
 
-set $ws_urgent_border #2d1f20
-set $ws_urgent_bg #2d1f20
-set $ws_urgent_text #82ee9b
+set $ws_urgent_border #1f222d
+set $ws_urgent_bg #1f222d
+set $ws_urgent_text #ee829f
 
 
-bar {
-    position top
-    status_command i3blocks
-    #strip_workspace_numbers yes
-    colors {
-        separator $bar_separator
-        background $bar_bg
-        statusline $bar_statusline
-        #                  border  background text
-        focused_workspace  $ws_focused_border $ws_focused_bg $ws_focused_text
-        active_workspace  $ws_active_border $ws_active_bg $ws_active_text
-        inactive_workspace  $ws_inactive_border $ws_inactive_bg $ws_inactive_text
-        urgent_workspace  $ws_urgent_border $ws_urgent_bg $ws_urgent_text
-    }
-}
+#--#bar {
+#--#    position top
+#--#    status_command i3blocks
+#--#    colors {
+#--#        separator $bar_separator
+#--#        background $bar_bg
+#--#        statusline $bar_statusline
+#--#        #                  border  background text
+#--#        focused_workspace  $ws_focused_border $ws_focused_bg $ws_focused_text
+#--#        active_workspace  $ws_active_border $ws_active_bg $ws_active_text
+#--#        inactive_workspace  $ws_inactive_border $ws_inactive_bg $ws_inactive_text
+#--#        urgent_workspace  $ws_urgent_border $ws_urgent_bg $ws_urgent_text
+#--#    }
+#--#}
 
 ## windows colors
-set $active_border #2d1f20
-set $active_bg #2d1f20
-set $active_text #e0d4d1
-set $active_indicator #47433F
+set $active_border #1f222d
+set $active_bg #1f222d
+set $active_text #F2F2F2
+set $active_indicator #2f343f
 
-set $inactive_border #523C30
-set $inactive_bg #523C30
-set $inactive_text #8D8766
-set $inactive_indicator #181013
+set $inactive_border #252936
+set $inactive_bg #252936
+set $inactive_text #828CA1
+set $inactive_indicator #101218
 
-set $urgent_border #362c25
-set $urgent_bg #82ee9b
-set $urgent_text #181013
-set $urgent_indicator #593c33
+set $urgent_border #252936
+set $urgent_bg #ee829f
+set $urgent_text #101218
+set $urgent_indicator #333859
 
 #                       border  background text    indicator
 client.focused          $active_border   $active_bg   $active_text   $active_indicator
-client.focused_inactive $active_border   $active_bg   $inactive_text   $active_indicator
+client.focused_inactive $inactive_border $active_bg $inactive_text $inactive_indicator
 client.unfocused        $inactive_border $inactive_bg $inactive_text $inactive_indicator
 client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 
 ## blank screen
 exec --no-startup-id xset s 180 300
 ## lock screen
-set $lock_command ~/.scripts/i3/i3lock-fancy.sh
-exec --no-startup-id xautolock -time 5 -locker $lock_command
+set $lock_command i3lock-fancy -p -f SFNS-Display-Thin
+exec --no-startup-id xautolock -time 5 -detectsleep -locker "$lock_command"
 bindsym $mod+Shift+x exec $lock_command
 
 ## screenshot
 bindsym Print exec i3-scrot -w
 
 ## PulseAudio
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
 
 ## background
-exec --no-startup-id feh --bg-fill ~/.wallpapers/wallnight-323432.jpg
+exec --no-startup-id feh --bg-fill ~/.wallpapers/wallpaper-blur-12.jpg
 
 ## composition
 exec --no-startup-id compton -cCGb --inactive-dim 0.2
 
 ## bolden active windows title
-#exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py
-
-## rename workspace
-exec_always --no-startup-id ~/.scripts/i3/i3ipc_rename_workspace.py
+exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py
 
 ## polybar
-#exec --no-startup-id polybar top
+exec --no-startup-id polybar -r top
 
 ## floating windows
 for_window [class="Lxappearance"] floating enable
@@ -246,5 +251,9 @@ for_window [class="Pavucontrol"] floating enable
 for_window [title="Thunderbird Preferences"] floating enable
 for_window [class="Remmina"] floating enable
 for_window [class="Galculator"] floating enable
+for_window [class="Connman"] floating enable
 for_window [class="Terminator" title="Terminator Preferences"] floating enable
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 20 px
+
+## autostart
+exec --no-startup-id i3-msg 'workspace $workspace2; exec /usr/bin/firefox; workspace $workspace3; exec /usr/bin/thunderbird; workspace $workspace1; exec termite -e "bash -l"'
