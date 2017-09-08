@@ -18,7 +18,9 @@ if [ -f ~/.shell_prompt.sh ]; then
     . ~/.shell_prompt.sh
 fi
 
-## less colors
-LESS="-R"
-LESSOPEN='|~/.lessfilter %s'
-[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
+
+if [ -f ~/.LESS_TERMCAP ]; then
+    . ~/.LESS_TERMCAP
+fi
