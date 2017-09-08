@@ -20,4 +20,5 @@ fi
 
 ## less colors
 LESS="-R"
+LESSOPEN='|~/.lessfilter %s'
 [[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
