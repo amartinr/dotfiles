@@ -12,8 +12,16 @@ def on_window_focus(i3, e):
     for leaf in leaves:
         if leaf.focused:
             leaf.command('title_format "<b>%title</b>"')
+            leaf.parent.command('title_format "<b>%title</b>"')
         else:
             leaf.command('title_format "%title"')
+
+        for child in leaf.parent.leaves():
+            if child.focused:
+                leaf.parent.command('title_format "<b>%title</b>"')
+                break
+            else:
+                leaf.parent.command('title_format "%title"')
 
 # Subscribe to events
 i3.on("window::focus", on_window_focus)
