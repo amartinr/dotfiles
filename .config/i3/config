@@ -234,10 +234,10 @@ exec --no-startup-id feh --bg-fill ~/.wallpapers/wallnight-323432.jpg
 exec --no-startup-id compton -cCGb --inactive-dim 0.2
 
 ## bolden active windows title
-#exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py
+exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py
 
 ## rename workspace
-#exec_always --no-startup-id ~/.scripts/i3/i3ipc_rename_workspace.py
+exec_always --no-startup-id ~/.scripts/i3/i3ipc_rename_workspace.py
 
 ## polybar
 #exec --no-startup-id polybar top
