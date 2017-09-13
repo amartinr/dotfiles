@@ -155,8 +155,10 @@ set $bar_bg #2d1f20
 set $bar_statusline #e0d4d1
 
 ## workspace colors
-set $ws_focused_border #7d6965
-set $ws_focused_bg #7d6965
+#set $ws_focused_border #7d6965
+#set $ws_focused_bg #7d6965
+set $ws_focused_border #2d1f20
+set $ws_focused_bg #2d1f20
 set $ws_focused_text #f2f2f2
 
 set $ws_active_border #2d1f20
@@ -175,7 +177,7 @@ set $ws_urgent_text #82ee9b
 bar {
     position top
     status_command i3blocks
-    #strip_workspace_numbers yes
+    strip_workspace_numbers yes
     colors {
         separator $bar_separator
         background $bar_bg
@@ -235,7 +237,7 @@ exec --no-startup-id compton -cCGb --inactive-dim 0.2
 #exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py
 
 ## rename workspace
-exec_always --no-startup-id ~/.scripts/i3/i3ipc_rename_workspace.py
+#exec_always --no-startup-id ~/.scripts/i3/i3ipc_rename_workspace.py
 
 ## polybar
 #exec --no-startup-id polybar top
