@@ -6,6 +6,8 @@ browser = firefox
 size_hints = 1
 
 cursor_shape = block
+allow_bold = true
+mouse_autohide = true
 
 [colors]
 # Base16 Ocean Dark
