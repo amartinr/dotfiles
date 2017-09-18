@@ -171,7 +171,7 @@ set $ws_inactive_text #7d6965
 
 set $ws_urgent_border #2d1f20
 set $ws_urgent_bg #2d1f20
-set $ws_urgent_text #82ee9b
+set $ws_urgent_text #FFA321
 
 
 bar {
@@ -202,7 +202,7 @@ set $inactive_text #8D8766
 set $inactive_indicator #181013
 
 set $urgent_border #362c25
-set $urgent_bg #82ee9b
+set $urgent_bg #FFA321
 set $urgent_text #181013
 set $urgent_indicator #593c33
 
