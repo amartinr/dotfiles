@@ -41,7 +41,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 5
+    transparency = 3
 
     # The height of the entire notification.  If the height is smaller
     # than the font height and padding combined, it will be raised
@@ -151,7 +151,7 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
 
     ### Icons ###
 
@@ -159,11 +159,10 @@
     icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 32
+    max_icon_size = 28
 
     # Paths to default icons.
-    #icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:
-    icon_path = /usr/share/icons/Vertex-Icons/apps/32:/usr/share/icons/Vertex-Icons/devices/32:/usr/share/icons/Vertex-Icons/status/32
+    icon_path = /usr/share/icons/Moka/32x32/apps:/usr/share/icons/Moka/32x32/devices:/usr/share/icons/Moka/32x32/status
 
     ### History ###
 
@@ -263,8 +262,7 @@
     foreground = "#FFA321"
     frame_color = "#FFA321"
     timeout = 10
-    # Icon for notifications with critical urgency, uncomment to enable
-    #icon = /path/to/icon
+    icon = /usr/share/icons/Moka/32x32/status/important.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -285,10 +283,6 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
-
-[important]
-    icon = "emblem-important"
-    new_icon = "important"
 
 #[espeak]
 #    summary = "*"
