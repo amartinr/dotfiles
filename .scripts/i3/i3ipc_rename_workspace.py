@@ -17,10 +17,11 @@ def rename_workspace(i3, e):
     if len(ws_name) > max_length:
         ws_name = '{}...'.format(ws_name[:max_length-3])
 
-    ## bold
-    i3.command('rename workspace to "%s:<b>%s: %s</b>"' % (ws_num, ws_num, ws_name))
-    ## regular
-    #i3.command('rename workspace to "%s:%s: %s"' % (ws_num, ws_num, ws_name))
+    layout = focused_window.parent.layout
+    if layout == "stacked" or layout == "tabbed":
+        i3.command('rename workspace to "%s:<b>%s</b>"' % (ws_num, ws_num))
+    else:
+        i3.command('rename workspace to "%s:<b>%s: %s</b>"' % (ws_num, ws_num, ws_name))
 
     #print("-----------------------")
     #print()
