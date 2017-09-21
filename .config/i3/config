@@ -22,8 +22,7 @@ for_window [class="^Termite|^Terminator"] border pixel 1
 bindsym Control+Shift+x [class="^.*"] border toggle
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite -e "bash -l"
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -127,8 +126,10 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -253,6 +254,7 @@ for_window [class="Remmina"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="Connman"] floating enable
 for_window [class="Terminator" title="Terminator Preferences"] floating enable
+for_window [class="Thunderbird" title="^Write:"] floating enable
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 20 px
 
 ## autostart
