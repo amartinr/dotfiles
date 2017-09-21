@@ -19,17 +19,13 @@ def rename_workspace(i3, e):
     layout = focused_window.parent.layout
 
     if focused_window.parent.layout in ('tabbed', 'stacked'):
-        i3.command('rename workspace to "%s:<b>%s</b>"' % (ws_num, ws_num))
+        if len(focused_window.parent.nodes) > 1:
+            i3.command('rename workspace to "%s:<b>%s</b>"' % (ws_num, ws_num))
+        else:
+            i3.command('rename workspace to "%s:<b>%s: %s</b>"' % (ws_num, ws_num, ws_name))
     else:
         i3.command('rename workspace to "%s:<b>%s: %s</b>"' % (ws_num, ws_num, ws_name))
 
-    #print("-----------------------")
-    #print()
-    #print("focused workspace number: %s" % focused_workspace.num)
-    #print("focused workspace name: %s" % focused_workspace.name)
-    #print("focused window name: %s" % focused_window.name)
-    #print("ws_name: %s" % ws_name)
-    #print()
 
 def clear_workspace(i3, e):
     focused_window = i3.get_tree().find_focused()
@@ -63,7 +59,10 @@ def layout_change(i3, e):
     if command[0] == 'layout':
         layout = command[1]
         if layout in ('tabbed', 'stacking','stacked'):
-            i3.command('rename workspace to "%s:<b>%s:</b>"' % (ws_num, ws_num))
+            if len(focused_window.parent.nodes) > 1:
+                i3.command('rename workspace to "%s:<b>%s</b>"' % (ws_num, ws_num))
+            else:
+                i3.command('rename workspace to "%s:<b>%s: %s</b>"' % (ws_num, ws_num, ws_name))
         elif layout in ('toggle split', 'splith', 'splitv'):
             i3.command('rename workspace to "%s:<b>%s: %s</b>"' % (ws_num, ws_num, ws_name))
     elif command[0] == 'split':
