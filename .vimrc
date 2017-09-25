@@ -3,12 +3,13 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+" set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'chrisbra/Colorizer.git'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()
 
@@ -26,8 +27,6 @@ call vundle#end()
 "
 
 runtime! archlinux.vim
-
-syntax on
 
 " do not load defaults if ~/.vimrc is missing
 "let skip_defaults_vim=1
@@ -96,11 +95,20 @@ nnoremap k j
 " SimplyFold
 let g:SimpylFold_docstring_preview=1
 
-" YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
-"let mapleader = ' ' 
-"map <Leader>g  :YcmCompleter GoToDefinition<CR>
+let mapleader = 'ç' 
 
+" YouCompleteMe
+"let g:enable_ycm_at_startup = 0
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion=0
+let g:ycm_server_keep_logfiles = 0
+let g:ycm_server_log_level = 'warn'
+map <Leader>g  :YcmCompleter GoToDefinition<CR>
+
+" Disable YCM for Python files
+let g:ycm_filetype_specific_completion_to_disable = { 'python' : 1 }
+let g:ycm_filetype_blacklist = { 'python' : 1 }
+
+let python_highlight_all=1
+syntax on
