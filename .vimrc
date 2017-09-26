@@ -15,16 +15,6 @@ call vundle#end()
 
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
 
 runtime! archlinux.vim
 
@@ -97,18 +87,43 @@ let g:SimpylFold_docstring_preview=1
 
 let mapleader = 'ç' 
 
-" YouCompleteMe
+" YouCompleteMe {
 "let g:enable_ycm_at_startup = 0
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_python_binary_path = '/usr/bin/python'
 let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion=0
+let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_server_keep_logfiles = 0
 let g:ycm_server_log_level = 'warn'
 map <Leader>g  :YcmCompleter GoToDefinition<CR>
 
-" Disable YCM for Python files
-let g:ycm_filetype_specific_completion_to_disable = { 'python' : 1 }
-let g:ycm_filetype_blacklist = { 'python' : 1 }
+" disable YCM for Python files
+" let g:ycm_filetype_specific_completion_to_disable = { 'python' : 1 }
+" let g:ycm_filetype_blacklist = { 'python' : 1 }
+" }
+
+" jedi-vim {
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#completions_command = ""
+
+" https://github.com/Valloric/YouCompleteMe/issues/1890
+let g:jedi#show_call_signatures_delay = 0
+let g:jedi#show_call_signatures = "1"
+
+" jedi-vim defaults
+"let g:jedi#goto_command = "<leader>d"
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = "<leader>G"
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "<leader>r"
+" }
 
 let python_highlight_all=1
 syntax on
+
+nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
