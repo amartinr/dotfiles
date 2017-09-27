@@ -1,18 +1,22 @@
-" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
-" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing archlinux.vim since it alters the value of the
-" 'compatible' option.
+"Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages.
+" set the runtime path to include Vundle and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'chrisbra/Colorizer.git'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
+
+call vundle#end()
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
 runtime! archlinux.vim
-
-" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
-" Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
-" and configure vim to your own liking!
 
 " do not load defaults if ~/.vimrc is missing
 "let skip_defaults_vim=1
@@ -35,36 +39,104 @@ set shiftwidth=4    " Indents will have a width of 4.
 set softtabstop=4   " Sets the number of columns for a TAB.
 set expandtab       " Expand TABs to spaces.
 
-" Dark background
+" PEP8
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+" colors
 set bg=dark
 set t_Co=256
-syntax on
-
-"colorscheme base16-brewer
-"colorscheme ChocolateLiquor
-"colorscheme Dark
 colorscheme 0x7A69_dark
-"let g:gruvbox_contrast_dark = 'soft'
+
+" Flag unnecesary whitespaces (after colorscheme)
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" a line below the current line
+set cursorline
+
+" UTF-8
+set encoding=utf-8
 
 " Airline
 set laststatus=2
 set noshowmode
-let g:airline_powerline_fonts = 1
 let g:airline_theme = 'term'
-"let g:airline_theme = 'base16_bright'
+let g:airline_powerline_fonts = 1
 
 "if !exists('g:airline_symbols')
 "    let g:airline_symbols = {}
 "endif
 "let g:airline_symbols.space = "\ua0"
 
-" vundler
-set nocompatible
-filetype off
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
 
-call vundle#rc()
+" Enable folding with the spacebar
+nnoremap <space> za
 
-" plugins
-Plugin 'chrisbra/Colorizer.git'
+" Remap movements keys to behave like i3
+nnoremap ñ l
+nnoremap j h
+nnoremap l k
+nnoremap k j
 
-filetype plugin indent on
+" SimplyFold
+let g:SimpylFold_docstring_preview=1
+
+let mapleader = 'ç' 
+
+" YouCompleteMe {
+"let g:enable_ycm_at_startup = 0
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_python_binary_path = '/usr/bin/python'
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_server_keep_logfiles = 0
+let g:ycm_server_log_level = 'warn'
+map <Leader>g  :YcmCompleter GoToDefinition<CR>
+
+" disable YCM for Python files
+" let g:ycm_filetype_specific_completion_to_disable = { 'python' : 1 }
+" let g:ycm_filetype_blacklist = { 'python' : 1 }
+" }
+
+" jedi-vim {
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#completions_command = ""
+
+" https://github.com/Valloric/YouCompleteMe/issues/1890
+let g:jedi#show_call_signatures_delay = 0
+let g:jedi#show_call_signatures = "1"
+
+" jedi-vim defaults
+"let g:jedi#goto_command = "<leader>d"
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = "<leader>G"
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "<leader>r"
+" }
+
+let python_highlight_all=1
+syntax on
+
+" run python scripts
+autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
