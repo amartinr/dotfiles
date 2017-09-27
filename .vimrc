@@ -126,4 +126,11 @@ let g:jedi#show_call_signatures = "1"
 let python_highlight_all=1
 syntax on
 
-nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+" run python scripts
+autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
