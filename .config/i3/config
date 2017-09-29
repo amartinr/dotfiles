@@ -234,7 +234,7 @@ set $inactive_child_border #252936
 set $urgent_border #72818F
 set $urgent_bg #72818F
 set $urgent_text #1f222d
-set $urgent_indicator #434C54
+set $urgent_indicator #CBE6FF
 
 #                       border  background text    indicator
 client.focused          $active_border   $active_bg   $active_text   $active_indicator $active_child_border
