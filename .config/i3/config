@@ -217,23 +217,29 @@ set $ws_urgent_text #ee829f
 set $active_border #1f222d
 set $active_bg #1f222d
 set $active_text #F2F2F2
-set $active_indicator #2f343f
+set $active_indicator #72818F
+set $active_child_border #1f222d
 
 #set $inactive_border #252936
 set $inactive_border #252936
 set $inactive_bg #252936
-set $inactive_text #828CA1
-set $inactive_indicator #101218
+set $inactive_text #72818F
+set $inactive_indicator #434C54
+set $inactive_child_border #252936
 
-set $urgent_border #252936
-set $urgent_bg #ee829f
-set $urgent_text #101218
-set $urgent_indicator #333859
+#set $urgent_border #252936
+#set $urgent_bg #ee829f
+#set $urgent_text #101218
+#set $urgent_indicator #333859
+set $urgent_border #72818F
+set $urgent_bg #72818F
+set $urgent_text #1f222d
+set $urgent_indicator #434C54
 
 #                       border  background text    indicator
-client.focused          $active_border   $active_bg   $active_text   $active_indicator
-client.focused_inactive $inactive_border $active_bg $inactive_text $inactive_indicator
-client.unfocused        $inactive_border $inactive_bg $inactive_text $inactive_indicator
+client.focused          $active_border   $active_bg   $active_text   $active_indicator $active_child_border
+client.focused_inactive $inactive_border $active_bg $inactive_text $inactive_indicator $inactive_child_border
+client.unfocused        $inactive_border $inactive_bg $inactive_text $inactive_indicator $inactive_child_border
 client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 
 ## blank screen

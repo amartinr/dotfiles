@@ -34,13 +34,13 @@ format = <label-state> <label-mode>
 
 label-focused = %name%
 label-focused-foreground = #F2F2F2
-label-focused-background = #656D7D
+label-focused-background = #72818F
 label-focused-underline = #F2F2F2
 label-focused-padding = 2
 label-focused-font = 4
 
 label-unfocused = %name%
-label-unfocused-foreground = #828CA1
+label-unfocused-foreground = #72818F
 label-unfocused-padding = 1
 label-unfocused-font = 4
 
@@ -48,7 +48,7 @@ label-visible = %name%
 label-visible-font = 4
 
 label-urgent = %name%
-label-urgent-foreground = #ee829f
+label-urgent-foreground = #F2F2F2
 label-urgent-padding = 1
 label-urgent-font = 4
 
