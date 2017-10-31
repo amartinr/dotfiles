@@ -1,11 +1,9 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
 set $mod Mod1
 
 ## font
-#font pango:Ionicons 10
-#font pango:FontAwesome 10
-font pango:System San Francisco Display 10
+font pango:Ionicons 10
+font pango:Sans 10
 
 floating_modifier $mod
 hide_edge_borders both
@@ -18,11 +16,13 @@ gaps inner 10
 gaps outer 5
 
 for_window [class="^.*"] border pixel 0
-for_window [class="^Termite|^Terminator"] border pixel 1
+for_window [class="^Termite|^Terminator|Xfce4-terminal|URxvt"] border pixel 1
 bindsym Control+Shift+x [class="^.*"] border toggle
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec xfce4-terminal --hide-menubar --hide-toolbar --hide-borders
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -144,7 +144,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec "i3-msg restart; killall polybar && sleep 0.25 && polybar -r top"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -197,21 +197,22 @@ set $ws_urgent_border #1f222d
 set $ws_urgent_bg #1f222d
 set $ws_urgent_text #ee829f
 
-
-#--#bar {
-#--#    position top
-#--#    status_command i3blocks
-#--#    colors {
-#--#        separator $bar_separator
-#--#        background $bar_bg
-#--#        statusline $bar_statusline
-#--#        #                  border  background text
-#--#        focused_workspace  $ws_focused_border $ws_focused_bg $ws_focused_text
-#--#        active_workspace  $ws_active_border $ws_active_bg $ws_active_text
-#--#        inactive_workspace  $ws_inactive_border $ws_inactive_bg $ws_inactive_text
-#--#        urgent_workspace  $ws_urgent_border $ws_urgent_bg $ws_urgent_text
-#--#    }
-#--#}
+###bar {
+###    position top
+###	font pango:FontAwesome 10
+###    status_command i3blocks
+###    #status_command i3status
+###    colors {
+###        separator $bar_separator
+###        background $bar_bg
+###        statusline $bar_statusline
+###        #                  border  background text
+###        focused_workspace  $ws_focused_border $ws_focused_bg $ws_focused_text
+###        active_workspace  $ws_active_border $ws_active_bg $ws_active_text
+###        inactive_workspace  $ws_inactive_border $ws_inactive_bg $ws_inactive_text
+###        urgent_workspace  $ws_urgent_border $ws_urgent_bg $ws_urgent_text
+###    }
+###}
 
 ## windows colors
 set $active_border #1f222d
@@ -245,7 +246,7 @@ client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 ## blank screen
 exec --no-startup-id xset s 180 300
 ## lock screen
-set $lock_command i3lock-fancy -p -f SFNS-Display-Thin
+set $lock_command i3lock-fancy -p -f Sans
 exec --no-startup-id xautolock -time 5 -detectsleep -locker "$lock_command"
 bindsym $mod+Shift+x exec $lock_command
 
@@ -253,21 +254,22 @@ bindsym $mod+Shift+x exec $lock_command
 bindsym Print exec i3-scrot -w
 
 ## PulseAudio
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
 
 ## background
 exec --no-startup-id feh --bg-fill ~/.wallpapers/wallpaper-blur-12.jpg
 
 ## composition
-exec --no-startup-id compton -cCGb --inactive-dim 0.2
+#exec --no-startup-id compton -cCGb --inactive-dim 0.2
+exec --no-startup-id compton -b
 
 ## bolden active windows title
-exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py
+exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py &
 
 ## polybar
-exec --no-startup-id polybar -r top
+exec --no-startup-id polybar -r top &
 
 ## floating windows
 for_window [class="Lxappearance"] floating enable
@@ -276,9 +278,19 @@ for_window [title="Thunderbird Preferences"] floating enable
 for_window [class="Remmina"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="Connman"] floating enable
+#for_window [class="Remmina" title="Remmina Remote Desktop Client"] floating enable
 for_window [class="Terminator" title="Terminator Preferences"] floating enable
 for_window [class="Thunderbird" title="^Write:"] floating enable
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 20 px
 
+## udisks
+exec --no-startup-id udiskie --automount --notify --smart-tray --use-udisks2 &
+
+## remmina
+#exec --no-startup-id remmina -i &
+
+## have fun! ;)
+#bindsym $mod+Shift+Return exec ~/.scripts/i3/fun-mode.sh
+
 ## autostart
-exec --no-startup-id i3-msg 'workspace $workspace2; exec /usr/bin/firefox; workspace $workspace3; exec /usr/bin/thunderbird; workspace $workspace1; exec termite -e "bash -l"'
+exec --no-startup-id i3-msg 'workspace $workspace2; exec /usr/bin/firefox; workspace $workspace3; exec /usr/bin/thunderbird; workspace $workspace1; exec urxvt'

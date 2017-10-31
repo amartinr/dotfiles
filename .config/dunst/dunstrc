@@ -161,7 +161,7 @@
     max_icon_size = 24
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Vertex-Icons/apps/24:/usr/share/icons/Vertex-Icons/devices/24:/usr/share/icons/Vertex-Icons/status/24
+    icon_path = ~/.icons/Vertex/apps/24:~/.icons/Vertex/devices/24:~/.icons/Vertex/status/24
 
     ### History ###
 
@@ -285,7 +285,7 @@
 
 [thunderbird]
     appname = Thunderbird
-    new_icon = /usr/share/icons/hicolor/24x24/apps/thunderbird.png
+    new_icon = /usr/share/thunderbird/chrome/icons/default/default24.png
 
 #[espeak]
 #    summary = "*"
