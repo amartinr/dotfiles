@@ -20,9 +20,8 @@ for_window [class="^Termite|^Terminator|Xfce4-terminal|URxvt"] border pixel 1
 bindsym Control+Shift+x [class="^.*"] border toggle
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec xfce4-terminal --hide-menubar --hide-toolbar --hide-borders
-bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -199,7 +198,7 @@ set $ws_urgent_text #ee829f
 
 ###bar {
 ###    position top
-###	font pango:FontAwesome 10
+###    font pango:FontAwesome 10
 ###    status_command i3blocks
 ###    #status_command i3status
 ###    colors {
@@ -293,4 +292,4 @@ exec --no-startup-id udiskie --automount --notify --smart-tray --use-udisks2 &
 #bindsym $mod+Shift+Return exec ~/.scripts/i3/fun-mode.sh
 
 ## autostart
-exec --no-startup-id i3-msg 'workspace $workspace2; exec /usr/bin/firefox; workspace $workspace3; exec /usr/bin/thunderbird; workspace $workspace1; exec urxvt'
+exec --no-startup-id i3-msg 'workspace $workspace2; exec /usr/bin/firefox; workspace $workspace3; exec /usr/bin/thunderbird; workspace $workspace1; exec i3-sensible-terminal'
