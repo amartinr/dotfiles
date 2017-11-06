@@ -96,3 +96,4 @@ time = %H:%M
 label =  %time%
 format = %{A1:gsimplecal &:}<label>%{A}
 
+; vi: ft=dosini
