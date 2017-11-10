@@ -216,7 +216,7 @@ set $ws_urgent_text #ee829f
 ## windows colors
 set $active_border #1f222d
 set $active_bg #1f222d
-set $active_text #F2F2F2
+set $active_text #FFFFFF
 set $active_indicator #72818F
 set $active_child_border #1f222d
 
@@ -245,12 +245,12 @@ client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 ## blank screen
 exec --no-startup-id xset s 180 300
 ## lock screen
-set $lock_command i3lock-fancy -p -f Sans
+set $lock_command ~/.scripts/lock.sh
 exec --no-startup-id xautolock -time 5 -detectsleep -locker "$lock_command"
 bindsym $mod+Shift+x exec $lock_command
 
 ## screenshot
-bindsym Print exec i3-scrot -w
+bindsym Print exec scrot -w
 
 ## PulseAudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
@@ -273,14 +273,15 @@ exec --no-startup-id polybar -r top &
 ## floating windows
 for_window [class="Lxappearance"] floating enable
 for_window [class="Pavucontrol"] floating enable
-for_window [title="Thunderbird Preferences"] floating enable
 for_window [class="Remmina"] floating enable
+#for_window [class="Remmina" title="Remmina Remote Desktop Client"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="Connman"] floating enable
-#for_window [class="Remmina" title="Remmina Remote Desktop Client"] floating enable
 for_window [class="Terminator" title="Terminator Preferences"] floating enable
+for_window [title="Thunderbird Preferences"] floating enable
 for_window [class="Thunderbird" title="^Write:"] floating enable
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 20 px
+for_window [class="feh"] floating enable
 
 ## udisks
 exec --no-startup-id udiskie --automount --notify --smart-tray --use-udisks2 &

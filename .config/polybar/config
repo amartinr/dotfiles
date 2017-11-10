@@ -12,8 +12,8 @@ fixed-centered = true
 modules-left = i3
 modules-center = xwindow
 modules-right = network volume date
-background = #1f222d
-foreground = #d1d4e0
+background = #191b24
+foreground = #e2e2e2
 
 font-0 = "Ionicons:size=11;2"
 font-1 = "Sans:size=10;2"
