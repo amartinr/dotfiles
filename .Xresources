@@ -1,11 +1,11 @@
 !~/bin/atomic-tty.sh special
-*.foreground:   #c0c5ce
+*.foreground:   #eff1f5
 *.background:   #2b303b
-*.cursorColor:  #c0c5ce
+*.cursorColor:  #eff1f5
 
 ! black
 *.color0:       #2b303b
-*.color8:       #65737e
+*.color8:       #343A47
 
 ! red
 *.color1:       #733A40
@@ -28,11 +28,11 @@
 *.color13:      #b48ead
 
 ! cyan
-*.color6:       #728A89
-*.color14:      #96b5b4
+*.color6:       #6099A1
+*.color14:      #74B8C2
 
 ! white
-*.color7:       #c0c5ce
+*.color7:       #DBE0EB
 *.color15:      #eff1f5
 
 ! URxvt
