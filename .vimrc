@@ -49,8 +49,21 @@ au BufNewFile,BufRead *.py
 
 " colors
 set bg=dark
-set t_Co=256
-"colorscheme darkocean
+
+" Airline
+set laststatus=2
+let g:airline_powerline_fonts = 1
+
+
+if &term=~'linux'
+    set t_Co=8
+    let g:airline_theme='solarized'
+    colorscheme default
+else
+    set t_Co=256
+    let g:airline_theme='bubblegum'
+endif
+
 
 " Flag unnecesary whitespaces (after colorscheme)
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -61,11 +74,6 @@ set cursorline
 
 " UTF-8
 set encoding=utf-8
-
-" Airline
-set laststatus=2
-let g:airline_theme='bubblegum'
-let g:airline_powerline_fonts = 1
 
 " Enable folding
 set foldmethod=indent
