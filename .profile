@@ -8,6 +8,9 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+## atomic concole theme
+~/bin/atomic-tty.sh
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -23,3 +26,5 @@ fi
 
 # disable bell for system terminal
 setterm -blength 0
+
+
