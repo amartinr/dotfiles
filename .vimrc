@@ -61,7 +61,8 @@ if &term=~'linux'
     colorscheme default
 else
     set t_Co=256
-    let g:airline_theme='bubblegum'
+    let g:airline_theme='atomic'
+    colorscheme atomic
 endif
 
 
