@@ -38,11 +38,11 @@
 ! URxvt
 URxvt*termName: xterm-256color
 
-#define fonts xft:Liberation Mono for Powerline:regular:size=11.2:antialias=true, \
+#define fonts xft:Liberation Mono for Powerline:regular:size=11.5:antialias=true, \
               xft:Ionicons:medium:size=11:antialias=true
 
 URxvt.font: fonts
-URxvt.boldFont: xft:Liberation Mono for Powerline:bold:size=11.2:antialias=true
+URxvt.boldFont: xft:Liberation Mono for Powerline:bold:size=11.5:antialias=true
 URxvt.letterSpace: -1
 
 URxvt.scrollBar: false
