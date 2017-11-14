@@ -43,6 +43,6 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # disable bell for system terminal
-setterm -blength 0
-
-
+if [[ "$TERM" = "linux" ]]; then
+    setterm -blength 0
+fi
