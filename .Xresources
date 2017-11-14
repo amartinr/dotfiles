@@ -1,7 +1,7 @@
-!~/bin/atomic-tty.sh special
-*.foreground:   #eff1f5
+! colors
+*.foreground:   #D0D4DE
 *.background:   #2b303b
-*.cursorColor:  #eff1f5
+*.cursorColor:  #C2C5CF
 
 ! black
 *.color0:       #2b303b
@@ -32,8 +32,8 @@
 *.color14:      #74B8C2
 
 ! white
-*.color7:       #DBE0EB
-*.color15:      #eff1f5
+*.color7:       #C2C5CF
+*.color15:      #D0D4DE
 
 ! URxvt
 URxvt*termName: xterm-256color
