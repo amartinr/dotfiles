@@ -287,6 +287,11 @@
     appname = Thunderbird
     new_icon = /usr/share/thunderbird/chrome/icons/default/default24.png
 
+[firefox]
+    appname = Firefox
+    new_icon = /usr/share/icons/hicolor/32x32/apps/firefox-esr.png
+
+
 #[espeak]
 #    summary = "*"
 #    script = dunst_espeak.sh

@@ -1,9 +1,9 @@
 #!/bin/bash
 # suspend message display
-pkill -u "$USER" -USR1 dunst
+killall -e -u "$USER" -USR1 dunst
 
 # lock the screen
-i3lock-fancy -p -f Sans
+i3lock-fancy -p -f DejaVu-Sans
 
 # resume message display
-pkill -u "$USER" -USR2 dunst
+killall -e -u "$USER" -USR2 dunst

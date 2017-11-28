@@ -143,7 +143,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec "i3-msg restart; killall polybar && sleep 0.25 && polybar -r top"
+bindsym $mod+Shift+r exec "i3-msg restart; sleep 1; pkill polybar; sleep 1; polybar -q -r top &"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -245,7 +245,7 @@ client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 ## blank screen
 exec --no-startup-id xset s 180 300
 ## lock screen
-set $lock_command ~/.scripts/lock.sh
+set $lock_command ~/.scripts/i3lock-dunst.sh
 exec --no-startup-id xautolock -time 5 -detectsleep -locker "$lock_command"
 bindsym $mod+Shift+x exec $lock_command
 
@@ -293,4 +293,4 @@ exec --no-startup-id udiskie --automount --notify --smart-tray --use-udisks2 &
 #bindsym $mod+Shift+Return exec ~/.scripts/i3/fun-mode.sh
 
 ## autostart
-exec --no-startup-id i3-msg 'workspace $workspace2; exec /usr/bin/firefox; workspace $workspace3; exec /usr/bin/thunderbird; workspace $workspace1; exec i3-sensible-terminal'
+exec --no-startup-id i3-msg 'workspace $workspace2; exec firefox --no-remote -p default; workspace $workspace3; exec /usr/bin/thunderbird; workspace $workspace1; exec i3-sensible-terminal'
