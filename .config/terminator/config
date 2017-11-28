@@ -27,13 +27,13 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 1
-    copy_on_selection = True
-    font = Liberation Mono for Powerline 11
-    palette = "#2b303b:#733A40:#6E805E:#A68F61:#6F7C8A:#856980:#6099A1:#C2C5CF:#343A47:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#74B8C2:#D0D4DE"
     background_color = "#2b303b"
-    foreground_color = "#D0D4DE"
+    background_darkness = 1.0
+    copy_on_selection = True
     cursor_color = "#C2C5CF"
+    font = Liberation Mono for Powerline 11
+    foreground_color = "#d0d4de"
+    palette = "#2b303b:#733a40:#6e805e:#a68f61:#6f7c8a:#856980:#6099a1:#c2c5cf:#343a47:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#74b8c2:#d0d4de"
     scrollback_lines = 1000
     scrollbar_position = hidden
     show_titlebar = False

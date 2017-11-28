@@ -35,19 +35,20 @@
 *.color7:       #C2C5CF
 *.color15:      #D0D4DE
 
-! URxvt
+! terminal name
 URxvt*termName: xterm-256color
 
-#define fonts xft:Liberation Mono for Powerline:regular:size=11.5:antialias=true, \
-              xft:Ionicons:medium:size=11:antialias=true
-
-URxvt.font: fonts
+! fonts
+URxvt.font: xft:Liberation Mono for Powerline:regular:size=11.5:antialias=true, \
+            xft:Ionicons:medium:size=11:antialias=true, \
+            xft:FontAwesome:regular:size=11:antialias=true
 URxvt.boldFont: xft:Liberation Mono for Powerline:bold:size=11.5:antialias=true
 URxvt.letterSpace: -1
 
-URxvt.scrollBar: false
-URxvt*loginShell: false
+URxvt*scrollBar: false
 URxvt*internalBorder: 1
+
+URxvt*loginShell: false
 
 ! end and home keys
 URxvt.keysym.Home: \033[1~
@@ -65,3 +66,6 @@ URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-plus:      resize-font:bigger
 URxvt.keysym.C-equal:     resize-font:reset
 URxvt.keysym.C-question:  resize-font:show
+
+! scrollback
+URxvt*saveLines: 5000
