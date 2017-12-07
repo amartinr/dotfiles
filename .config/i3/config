@@ -267,6 +267,13 @@ exec --no-startup-id compton -b
 ## bolden active windows title
 exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py &
 
+## open floating terminals in non-empty workspaces
+exec_always --no-startup-id ~/.scripts/i3/i3ipc_floating_terminals.py &
+
+## 
+exec_always --no-startup-id ~/.scripts/i3/i3ipc_floating_windows.py &
+
+
 ## polybar
 exec --no-startup-id polybar -r top &
 
@@ -274,14 +281,18 @@ exec --no-startup-id polybar -r top &
 for_window [class="Lxappearance"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Remmina"] floating enable
-#for_window [class="Remmina" title="Remmina Remote Desktop Client"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="Connman"] floating enable
-for_window [class="Terminator" title="Terminator Preferences"] floating enable
-for_window [title="Thunderbird Preferences"] floating enable
-for_window [class="Thunderbird" title="^Write:"] floating enable
+#for_window [class="Terminator" title="Terminator Preferences"] floating enable
+#for_window [title="Thunderbird Preferences"] floating enable
+#for_window [class="Thunderbird" title="^Write:"] floating enable
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 24 px
 for_window [class="feh"] floating enable
+#for_window [class="Qgis.bin" title="::"] floating enable
+
+## assign windows to workspaces
+assign [class="Thunderbird"] "3: "
+assign [title="QGIS"] "9"
 
 ## udisks
 exec --no-startup-id udiskie --automount --notify --smart-tray --use-udisks2 &

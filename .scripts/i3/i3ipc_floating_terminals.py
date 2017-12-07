@@ -6,7 +6,7 @@ import i3ipc
 i3 = i3ipc.Connection()
 
 terminal_workspaces = [ 1 ]
-class_terminals = {'URxvt', 'Terminator', 'Termite', 'Xfce4-terminal'}
+class_terminals = ['URxvt', 'Terminator', 'Termite', 'Xfce4-terminal']
 
 def is_terminal_workspace(ws):
     leaves = ws.leaves()
@@ -29,13 +29,30 @@ def is_ws_empty(ws):
 # Dynamically change windows title typeface to bold
 def on_window_new(i3, event):
     ws = i3.get_tree().find_focused().workspace()
+    leaves = ws.leaves()
+
+    term_count = 0
+
+    width = 1200
+    height = 800
 
     if not is_ws_empty(ws):
         if not is_terminal_workspace(ws):
             if event.container.window_class in class_terminals:
-                event.container.command('floating toggle')
-                #event.container.command('focus floating')
-                #event.container.command('layout tabbed')
+                for leaf in leaves:
+                    print("%s, %s" % (leaf.props.window_class, ws.props.name))
+                    if event.container.window_class in leaf.window_class:
+                        term_count = term_count + 1
+
+                print("%s" % term_count)
+                print("---------------")
+
+                if term_count == 1:
+                    resize_command = 'resize set %s %s' % (width, height)
+
+                    event.container.command('floating toggle')
+                    event.container.command(resize_command)
+                    event.container.command('move position center')
 
 # Subscribe to events
 i3.on("window::new", on_window_new)
