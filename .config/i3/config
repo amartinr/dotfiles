@@ -3,27 +3,23 @@
 set $mod Mod1
 
 ## font
-font pango:FontAwesome 10
-font pango:System San Francisco Display 10
-#font pango: WunconSiji 10
+font pango:Sans 10
 
 floating_modifier $mod
 hide_edge_borders both
 new_window normal
 
 ## i3-gaps
-smart_borders on
-smart_gaps on
-gaps inner 10
-gaps outer 5
+#smart_borders on
+#smart_gaps on
+#gaps inner 10
+#gaps outer 5
 
-for_window [class="^.*"] border pixel 0
-for_window [class="^Termite|^Terminator"] border pixel 1
+for_window [class="^.*"] border pixel 1
 bindsym Control+Shift+x [class="^.*"] border toggle
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite -e "bash -l"
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -151,30 +147,30 @@ bindsym $mod+r mode "resize"
 
 ## bar colors
 set $bar_separator #362c25
-set $bar_bg #2d1f20
+#set $bar_bg #2d1f20
+set $bar_bg #24191a
 set $bar_statusline #e0d4d1
 
 ## workspace colors
-#set $ws_focused_border #7d6965
-#set $ws_focused_bg #7d6965
-set $ws_focused_border #2d1f20
-set $ws_focused_bg #2d1f20
-set $ws_focused_text #f2f2f2
+set $ws_focused_border #24191a
+set $ws_focused_bg #24191a
+set $ws_focused_text #e0d4d1
 
-set $ws_active_border #2d1f20
+set $ws_active_border #24191a
 set $ws_active_bg #362c25
 set $ws_active_text #7d6965
 
-set $ws_inactive_border #2d1f20
-set $ws_inactive_bg #2d1f20
+set $ws_inactive_border #24191a
+set $ws_inactive_bg #24191a
 set $ws_inactive_text #7d6965
 
-set $ws_urgent_border #2d1f20
-set $ws_urgent_bg #2d1f20
+set $ws_urgent_border #24191a
+set $ws_urgent_bg #24191a
 set $ws_urgent_text #FFA321
 
 
 bar {
+    font pango:FontAwesome 10
     position top
     status_command i3blocks
     strip_workspace_numbers yes
@@ -215,12 +211,12 @@ client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 ## blank screen
 exec --no-startup-id xset s 180 300
 ## lock screen
-set $lock_command i3lock-fancy -p -f SFNS-Display-Thin
+set $lock_command ~/.scripts/i3lock-dunst.sh
 exec --no-startup-id xautolock -time 5 -locker "$lock_command"
 bindsym $mod+Shift+x exec $lock_command
 
 ## screenshot
-bindsym Print exec i3-scrot -w
+bindsym Print exec scrot -u
 
 ## PulseAudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
@@ -231,19 +227,18 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill
 exec --no-startup-id feh --bg-fill ~/.wallpapers/wallnight-323432.jpg
 
 ## composition
-exec --no-startup-id compton -cCGb --inactive-dim 0.2
+exec --no-startup-id compton -b
 
 ## bolden active windows title
 exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py
 
 ## rename workspace
-exec_always --no-startup-id ~/.scripts/i3/i3ipc_rename_workspace_o.py
+exec_always --no-startup-id ~/.scripts/i3/i3ipc_rename_workspace.py
 
-#exec --no-startup-id i3-msg -t command workspace 1 && i3-msg -t command 'rename workspace to "1:<b>1</b>"'
-exec --no-startup-id i3-msg -t command workspace number 1 && i3-msg -t command 'rename workspace to 1:➊'
+exec --no-startup-id i3-msg -t command workspace 1 && i3-msg -t command 'rename workspace to "1:<b>1</b>"'
 
-## polybar
-#exec --no-startup-id polybar top
+## udiskie
+exec --no-startup-id udiskie -2 -a -n -s
 
 ## floating windows
 for_window [class="Lxappearance"] floating enable
@@ -251,5 +246,6 @@ for_window [class="Pavucontrol"] floating enable
 for_window [title="Thunderbird Preferences"] floating enable
 for_window [class="Remmina"] floating enable
 for_window [class="Galculator"] floating enable
+for_window [class="Gcolor3"] floating enable
 for_window [class="Terminator" title="Terminator Preferences"] floating enable
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 20 px

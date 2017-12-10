@@ -2,7 +2,6 @@
 
 import i3ipc
 
-
 def rename_workspace(i3, e):
     focused_window = i3.get_tree().find_focused()
     focused_workspace = focused_window.workspace()
@@ -12,7 +11,10 @@ def rename_workspace(i3, e):
 
     max_length = 72
     if len(window_name) > max_length:
-        window_name = '{}...'.format(window_name[:max_length-3])
+        window_name = '{}...'.format(window_name[:max_length-3]).replace('"',
+                                                                         r'\"')
+    else:
+        window_name = window_name.replace('"', r'\"')
 
     if focused_window.parent.layout in ('tabbed', 'stacked'):
         if len(focused_window.parent.nodes) > 1:
@@ -26,13 +28,19 @@ def rename_workspace(i3, e):
                                                                ws_num,
                                                                window_name))
 
-
 def clear_workspace(i3, e):
     focused_window = i3.get_tree().find_focused()
     focused_workspace = focused_window.workspace()
 
     ws_num = focused_workspace.num
     window_name = focused_window.name
+
+    max_length = 72
+    if len(window_name) > max_length:
+        window_name = '{}...'.format(window_name[:max_length-3]).replace('"',
+                                                                         r'\"')
+    else:
+        window_name = window_name.replace('"', r'\"')
 
     if len(focused_workspace.nodes) == 0:
         i3.command('rename workspace to "%s:<b>%s</b>"' % (ws_num, ws_num))
@@ -55,6 +63,13 @@ def layout_change(i3, e):
 
     ws_num = focused_workspace.num
     window_name = focused_window.name
+
+    max_length = 72
+    if len(window_name) > max_length:
+        window_name = '{}...'.format(window_name[:max_length-3]).replace('"',
+                                                                         r'\"')
+    else:
+        window_name = window_name.replace('"', r'\"')
 
     command = e.binding.command.split(None, 1)
 
@@ -79,6 +94,5 @@ i3.on('window::move', clear_workspace)
 i3.on('window::close', clear_workspace)
 i3.on('workspace::focus', focus_workspace)
 i3.on('binding::run', layout_change)
-
 
 i3.main()
