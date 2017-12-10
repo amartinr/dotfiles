@@ -1,63 +1,55 @@
-! URxvt
-
-! General settings
-URxvt.saveLines: 2000
-URxvt.scrollBar: False
-URxvt.scrollstyle: rxvt
-URxvt.termName: xterm-256color
-URxvt.urgentOnBell: True
-URxvt.cursorBlink: False
-
-! Extensions
-URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select
-URxvt.urlLauncher: xdg-open
-URxvt.urlButton: 1
-URxvt.underlineURLs: True
-
-URxvt.copyCommand:  xclip -i -selection clipboard
-URxvt.pasteCommand: xclip -o -selection clipboard
-
-! Keybindings
-URxvt.keysym.Mod4-c: perl:clipboard:copy
-URxvt.keysym.Mod4-v: perl:clipboard:paste
-URxvt.keysym.Mod4-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.C-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-u: perl:url-select:select_next
-
-! Fonts
-URxvt.font: xft:DejaVu Sans Mono for Powerline-11
-URxvt.boldFont: xft:DejaVu Sans Mono for Powerline-11
-URxvt.letterSpace: -1
-
-! Tango theme
-URxvt.background: #1C1C1C
-URxvt.foreground: #DEDEDE
+! special
+*.foreground:      #D6B89A
+*.background:      #181512
+*.cursorColor:      #bea492
 
 ! black
-URxvt.color0  : #2E3436
-URxvt.color8  : #555753
+*.color0: #332d29
+*.color8: #817267
+
 ! red
-URxvt.color1  : #CC0000
-URxvt.color9  : #EF2929
+*.color1: #703F3F
+*.color9: #A35C5C
+
 ! green
-URxvt.color2  : #4E9A06
-URxvt.color10 : #8AE234
+*.color2: #607051
+*.color10: #8CA376
+
 ! yellow
-URxvt.color3  : #C4A000
-URxvt.color11 : #FCE94F
+*.color3: #70683F
+*.color11: #A3985C
+
 ! blue
-URxvt.color4  : #3465A4
-URxvt.color12 : #729FCF
+*.color4: #3B414A
+*.color12: #646E7D
+
 ! magenta
-URxvt.color5  : #75507B
-URxvt.color13 : #AD7FA8
+*.color5: #6B6070
+*.color13: #9C8CA3
+
 ! cyan
-URxvt.color6  : #06989A
-URxvt.color14 : #34E2E2
+*.color6: #5A7069
+*.color14: #83A399
+
 ! white
-URxvt.color7  : #D3D7CF
-URxvt.color15 : #EEEEEC
+*.color7: #706050
+*.color15: #A38C75
+
+! URxvt
+#define fonts xft:Liberation Mono for Powerline:regular:size=11.2:antialias=true, \
+              xft:Ionicons:medium:size=11:antialias=true
+
+URxvt.font: fonts
+URxvt.boldFont: xft:Liberation Mono for Powerline:bold:size=11.2:antialias=true
+URxvt.letterSpace: -1
+URxvt.scrollBar: false
+URxvt*loginShell: false
+URxvt*internalBorder: 1
+
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+! scrollback
+URxvt*saveLines: 5000
