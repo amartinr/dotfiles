@@ -9,4 +9,4 @@ rofi.color-active: #828ca1, #f3f3f5, #828ca1, #828ca1, #ffdd52
 rofi.color-urgent: #ffa321, #f3f3f5, #ffa321, #ffa321, #7e1f34
 rofi.separator-style:                solid
 rofi.ssh-client:                     ssh
-rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
+rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"

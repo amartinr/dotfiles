@@ -28,10 +28,10 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator=false
 separator_block_width=9
 markup=none
-#border_top=0
-#border_left=0
-#border_right=0
-#border_bottom=0
+border_top=0
+border_left=0
+border_right=0
+border_bottom=0
 
 #[title]
 #command=~/.config/i3/i3ipc_get_windows_title.py
@@ -94,8 +94,9 @@ interval=30
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [wifi]
 command=~/.scripts/i3blocks/wifi
-instance=wlan0
+instance=wlp2s0
 interval=30
+#separator_block_width=0
 
 #[iface]
 #label=
@@ -114,17 +115,17 @@ interval=30
 #signal=10
 
 #if you prefer automatic updating
-[volume-pulseaudio]
-#command=~/.scripts/i3blocks/volume-pulseaudio -F3 -S -C "#e0d4d1" -c "#7d6965" -t 25 -T 75 -X 🔇 -L 🔈 -M 🔉 -H 🔊
-command=~/.scripts/i3blocks/volume-pulseaudio -F3 -S -C "#e0d4d1" -c "#7d6965" -t 25 -T 75 -X "🔇 "
-interval=persist
-signal=10
+#[volume-pulseaudio]
+#command=~/.scripts/i3blocks/volume-pulseaudio -Sa
+#interval=persist
+#signal=10
 
 #if you prefer updating only when signaled
-#[volume-pulseaudio]
-#command=~/.scripts/i3blocks/volume-pulseaudio -F3 -C "#e0d4d1" -c "#7d6965"
-#interval=once
-#signal=10
+[volume-pulseaudio]
+#command=~/.scripts/i3blocks/volume-pulseaudio -F3 -C "#d1d4e0" -c "#656D7D"
+command=~/.scripts/i3blocks/volume-pulseaudio -F3 -C "#e0d4d1" -c "#7d6965"
+interval=once
+signal=10
 
 
 # Battery indicator
@@ -147,9 +148,9 @@ interval=10
 
 
 [time]
-#label=🕓
-#command=echo "$(date '+%H:%M')" && [[ -z "${BLOCK_BUTTON}" ]] || gsimplecal &
-command=date '+%H:%M'
+label=
+command=echo "$(date '+%H:%M')" && [[ -z "${BLOCK_BUTTON}" ]] || gsimplecal &
+#command=date '+%H:%M'
 interval=5
 #border=#efeebe
 

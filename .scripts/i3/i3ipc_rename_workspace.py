@@ -2,6 +2,7 @@
 
 import i3ipc
 
+
 def rename_workspace(i3, e):
     focused_window = i3.get_tree().find_focused()
     focused_workspace = focused_window.workspace()
@@ -27,6 +28,7 @@ def rename_workspace(i3, e):
         i3.command('rename workspace to "%s:<b>%s: %s</b>"' % (ws_num,
                                                                ws_num,
                                                                window_name))
+
 
 def clear_workspace(i3, e):
     focused_window = i3.get_tree().find_focused()
@@ -94,5 +96,6 @@ i3.on('window::move', clear_workspace)
 i3.on('window::close', clear_workspace)
 i3.on('workspace::focus', focus_workspace)
 i3.on('binding::run', layout_change)
+
 
 i3.main()

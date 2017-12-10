@@ -21,7 +21,7 @@ This is my Arch Linux with i3-gaps setup at work.
 * vim-airline
 * vim-airline-themes
 * vim-promptline-git
-* pygtmentize
+* pygmentize
 * pygments-base16
 
 ## Colors
