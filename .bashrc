@@ -131,7 +131,7 @@ esac
 
 ## powerline prompt
 if [ -f ~/.shell_prompt.sh ]; then
-    case ${TERM} in xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
+    case ${TERM} in xterm*|rxvt*|Eterm|aterm|kterm|gnome*|linux)
         . ~/.shell_prompt.sh
     esac
 fi
