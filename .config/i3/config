@@ -109,7 +109,7 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+y focus child
 
 set $workspace1 1: 
 set $workspace2 2: 
@@ -261,18 +261,16 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill
 exec --no-startup-id feh --bg-fill ~/.wallpapers/wallpaper-blur-12.jpg
 
 ## composition
-#exec --no-startup-id compton -cCGb --inactive-dim 0.2
 exec --no-startup-id compton -b
 
 ## bolden active windows title
 exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py &
 
 ## open floating terminals in non-empty workspaces
-exec_always --no-startup-id ~/.scripts/i3/i3ipc_floating_terminals.py &
+#exec_always --no-startup-id ~/.scripts/i3/i3ipc_floating_terminals.py &
 
-## 
+## open programs from already running programs as floating windows
 exec_always --no-startup-id ~/.scripts/i3/i3ipc_floating_windows.py &
-
 
 ## polybar
 exec --no-startup-id polybar -r top &
@@ -292,7 +290,7 @@ for_window [class="feh"] floating enable
 
 ## assign windows to workspaces
 assign [class="Thunderbird"] "3: "
-assign [title="QGIS"] "9"
+#assign [title="QGIS"] "9"
 
 ## udisks
 exec --no-startup-id udiskie --automount --notify --smart-tray --use-udisks2 &
