@@ -109,6 +109,7 @@ map <Leader>g  :YcmCompleter GoToDefinition<CR>
 "}
 
 " jedi-vim {
+let g:jedi#force_py_version = 3
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
@@ -133,10 +134,9 @@ let python_highlight_all=1
 syntax on
 
 " run python scripts
-autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+autocmd FileType python nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-
