@@ -62,7 +62,8 @@ type = internal/network
 interface = eth0
 interval = 3
 
-label-connected = "%{A1:nm-connection-editor -e 34fff321-0e71-4702-a369-05216df4661e:}%{A}"
+#label-connected = "%{A1:nm-connection-editor -e 34fff321-0e71-4702-a369-05216df4661e:}%{A}"
+label-connected = 
 label-disconnected = 
 
 click-left = nm-connection-editor -e 34fff321-0e71-4702-a369-05216df4661e
