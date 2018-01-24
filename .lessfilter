@@ -1,6 +1,7 @@
 #!/bin/sh
 
-PYGMENTIZE="pygmentize -f 256 -O style=base16-default-dark"
+PYGMENTIZE="pygmentize -f 256 -O style=native"
+#PYGMENTIZE="pygmentize -f 256"
 
 case "$1" in
     *.awk|*.groff|*.java|*.js|*.m4|*.php|*.pl|*.pm|*.pod|*.sh|\
