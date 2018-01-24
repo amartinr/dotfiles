@@ -22,7 +22,7 @@ def on_window_new(i3, event):
                 wc_count = wc_count + 1
 
         if wc_count > 1:
-           resize_command = 'resize set %s %s' % (width, height)
+           resize_command = 'resize set {0} {1}'.format(width, height)
 
            event.container.command('floating toggle')
            event.container.command(resize_command)
