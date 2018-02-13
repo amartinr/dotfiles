@@ -72,6 +72,35 @@ xterm*|rxvt*)
     ;;
 esac
 
+## https://ywwg.com/wordpress/?p=1145
+# Custom title-setting code that adds a triangle play-arrow
+# if the terminal is not waiting on the prompt
+case "$TERM" in
+xterm*|rxvt*)
+    # Edit the title if a command is running:
+    # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
+    show_command_in_title_bar()
+    {
+        case "$BASH_COMMAND" in
+            *\033]0*)
+                # The command is trying to set the title bar as well;
+                # this is most likely the execution of $PROMPT_COMMAND.
+                # In any case nested escapes confuse the terminal, so don't
+                # output them.
+            ;;
+            *)
+                # https://stackoverflow.com/questions/5076127/bash-update-terminal-title-by-running-a-second-command
+                echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~} ▶ $(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")\007"
+            ;;
+        esac
+    }
+    # The DEBUG signal simply announces the last-run command
+    trap show_command_in_title_bar DEBUG
+    ;;
+*)
+    ;;
+esac
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
