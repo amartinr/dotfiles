@@ -13,6 +13,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'edkolev/promptline.vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'vimperator/vimperator.vim'
 
 call vundle#end()
 
@@ -83,7 +84,7 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
-" Remap movements keys to behave like i3
+" Remap move keys to behave like i3
 nnoremap ñ l
 nnoremap j h
 nnoremap l k
