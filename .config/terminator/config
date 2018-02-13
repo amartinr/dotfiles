@@ -1,8 +1,9 @@
 [global_config]
+  always_split_with_profile = True
   borderless = True
   enabled_plugins = ,
-  extra_styling = False
   focus = mouse
+  handle_size = 4
   inactive_color_offset = 1.0
   title_font = Sans Bold 10
   title_hide_sizetext = True
@@ -33,7 +34,7 @@
     cursor_color = "#C2C5CF"
     font = Liberation Mono for Powerline 11
     foreground_color = "#d0d4de"
-    palette = "#2b303b:#733a40:#6e805e:#a68f61:#6f7c8a:#856980:#6099a1:#c2c5cf:#343a47:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#74b8c2:#d0d4de"
+    palette = "#252936:#733a40:#6e805e:#a68f61:#6f7c8a:#856980:#6099a1:#c2c5cf:#343a47:#bf616a:#a3be8c:#ebcb8b:#8fa1b3:#b48ead:#74b8c2:#d0d4de"
     scrollback_lines = 1000
     scrollbar_position = hidden
     show_titlebar = False
