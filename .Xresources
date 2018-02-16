@@ -39,10 +39,9 @@
 URxvt*termName: xterm-256color
 
 ! fonts
-URxvt.font: xft:Liberation Mono for Powerline:regular:size=11.5:antialias=true, \
-            xft:Ionicons:medium:size=11:antialias=true, \
-            xft:FontAwesome:regular:size=11:antialias=true
-URxvt.boldFont: xft:Liberation Mono for Powerline:bold:size=11.5:antialias=true
+URxvt.font: xft:LiterationMonoPowerline Nerd Font:regular:size=11.5:antialias=true
+URxvt.boldFont: xft:LiterationMonoPowerline Nerd Font:bold:size=11.5:antialias=true
+
 URxvt.letterSpace: -1
 
 URxvt*scrollBar: false
@@ -69,3 +68,10 @@ URxvt.keysym.C-question:  resize-font:show
 
 ! scrollback
 URxvt*saveLines: 5000
+
+! unicode entry (https://emergent.unpythonic.net/01340900642)
+URxvt*perl-ext: unichr,matcher,-selection
+
+! disable keycap insert picture mode
+URxvt.iso14755: true
+URxvt.iso14755_52: false
