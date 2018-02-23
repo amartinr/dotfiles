@@ -5,8 +5,10 @@ import i3ipc
 i3 = i3ipc.Connection()
 class_terminals = {'URxvt', 'Terminator', 'Termite', 'Xfce4-terminal'}
 class_editors = {'Mousepad'}
+class_browsers = {'Firefox-esr', 'Chromium'}
 
-# Dynamically change windows title typeface to bold
+# Make new children windows of existing ones floating except for editors, terminals
+# and browsers
 def on_window_new(i3, event):
     ws = i3.get_tree().find_focused().workspace()
     leaves = ws.leaves()
@@ -16,7 +18,8 @@ def on_window_new(i3, event):
     width = 1360
     height = 920
  
-    if event.container.window_class not in class_terminals | class_editors:
+    if event.container.window_class not in class_terminals | class_editors | \
+                                           class_browsers:
         for leaf in leaves:
             if event.container.window_class in leaf.window_class:
                 wc_count = wc_count + 1
