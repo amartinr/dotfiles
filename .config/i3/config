@@ -82,6 +82,28 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+mode "move" {
+    bindsym Up move up 20px
+    bindsym Left move left 20px
+    bindsym Down move down 20px
+    bindsym Right move right 20px
+    bindsym j move left 20px
+    bindsym k move down 20px
+    bindsym l move up 20px
+    bindsym ntilde move right 20px
+
+    bindsym $mod+m mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+m focus floating; mode "move"
+
+# make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 # focus the parent container
 bindsym $mod+a focus parent
 
