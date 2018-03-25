@@ -36,11 +36,8 @@
 *.color15: #A38C75
 
 ! URxvt
-#define fonts xft:Liberation Mono for Powerline:regular:size=11.2:antialias=true, \
-              xft:Ionicons:medium:size=11:antialias=true
-
-URxvt.font: fonts
-URxvt.boldFont: xft:Liberation Mono for Powerline:bold:size=11.2:antialias=true
+URxvt.font: xft:LiterationMonoPowerline Nerd Font:regular:size=11.2:antialias=true
+URxvt.boldFont: xft:LiterationMonoPowerline Nerd Font:bold:size=11.2:antialias=true
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt*loginShell: false
@@ -53,3 +50,7 @@ URxvt.keysym.C-question:  resize-font:show
 
 ! scrollback
 URxvt*saveLines: 5000
+
+! friendlier unicode entry
+URxvt.iso14755: false
+URxvt*perl-ext: unichr,matcher,-selection
