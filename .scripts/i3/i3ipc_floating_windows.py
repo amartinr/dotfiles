@@ -5,7 +5,7 @@ import i3ipc
 i3 = i3ipc.Connection()
 class_terminals = {'URxvt', 'Terminator', 'Termite', 'Xfce4-terminal'}
 class_editors = {'Mousepad'}
-class_browsers = {'Firefox-esr', 'Chromium'}
+class_browsers = {'Firefox-esr', 'Chromium', 'Firefox'}
 
 # Make new children windows of existing ones floating except for editors, terminals
 # and browsers
@@ -18,8 +18,9 @@ def on_window_new(i3, event):
     width = 1360
     height = 920
  
-    if event.container.window_class not in class_terminals | class_editors | \
-                                           class_browsers:
+    if event.container.window_class not in class_terminals | class_editors:
+    #if event.container.window_class not in class_terminals | class_editors | \
+    #                                       class_browsers:
         for leaf in leaves:
             if event.container.window_class in leaf.window_class:
                 wc_count = wc_count + 1
