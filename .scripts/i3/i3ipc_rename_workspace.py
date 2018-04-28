@@ -11,6 +11,7 @@ def format_string(string):
 
     return '<b>{0}</b>'.format(escape(string))
 
+
 def rename_workspace(i3, e):
 
     focused_window = i3.get_tree().find_focused()
@@ -29,7 +30,7 @@ def rename_workspace(i3, e):
         else:
             ws_name = format_string(str(ws_num) + ': ' + window_name)
     else:
-            ws_name = format_string(str(ws_num) + ': ' + window_name)
+        ws_name = format_string(str(ws_num) + ': ' + window_name)
 
     i3.command('rename workspace to "%s:%s"' % (ws_num, ws_name))
 
