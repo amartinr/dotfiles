@@ -36,14 +36,13 @@ _Term_, from vim-airline-themes
 
 ## Screenshots
 ### Clean desktop
-![i3-clean](https://user-images.githubusercontent.com/22908043/30157173-da5d58a4-93c1-11e7-877a-3eb3809a12b4.png)
+![i3-clean](https://user-images.githubusercontent.com/22908043/38335872-38c4db2c-3860-11e8-8111-c287b868f1ec.png)
 No windows open.
 ### Single window with no gaps
-![i3-fullscreen-nogaps](https://user-images.githubusercontent.com/22908043/30157178-dd81f544-93c1-11e7-8de7-522ec575da38.png)
+![i3-fullscreen-nogaps](https://user-images.githubusercontent.com/22908043/38335957-7e91676a-3860-11e8-97e0-dfab8b32ef69.png)
 A single terminal windows with no gaps, fully integrated into desktop.
 ### Busy desktop
-![i3-busy](https://user-images.githubusercontent.com/22908043/30157182-e0b1b7a4-93c1-11e7-8e1a-1e44be7dc674.png)
+![i3-busy](https://user-images.githubusercontent.com/22908043/38336359-d2e09ede-3861-11e8-9710-fd61d9f25346.png)
 Some windows with neofetch, vim (stacked windows), man (tabbed windows) and terminal colors.
 ### Wallpaper
-![wallpaper-blur-12](https://user-images.githubusercontent.com/22908043/30157442-9ed4401c-93c2-11e7-87b0-f9156d37af33.jpg)
-Desaturated version of http://wallpaper-gallery.net/images/wallpaper-blur/wallpaper-blur-12.jpg
+![wallpaper-blur](https://user-images.githubusercontent.com/22908043/38336406-fd7eb888-3861-11e8-92a8-6992335bfe61.jpg)
