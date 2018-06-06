@@ -1,6 +1,9 @@
 ## X bell off
 xset b off
 
+# add local to ACL
+xhost +local:root
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -23,3 +26,5 @@ PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 
 # S.M.A.R.T. notifications
 smart-notifier &
+
+redshift &
