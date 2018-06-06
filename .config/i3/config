@@ -234,7 +234,7 @@ client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 exec --no-startup-id xset s 180 300
 ## lock screen
 set $lock_command ~/.scripts/i3lock-dunst.sh
-exec --no-startup-id xautolock -time 5 -locker "$lock_command"
+exec --no-startup-id xautolock -time 5 -locker "$lock_command" -detectsleep
 bindsym $mod+Shift+x exec $lock_command
 
 ## screenshot
