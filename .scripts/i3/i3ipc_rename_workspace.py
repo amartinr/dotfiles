@@ -73,7 +73,7 @@ def layout_change(i3, e):
     command = e.binding.command.split(None, 1)
 
     if command[0] == 'layout':
-        print("layout_change")
+        print("layout_change (layout)")
         layout = command[1]
         if layout in ('tabbed', 'stacking', 'stacked'):
             if len(focused_window.parent.nodes) > 1:
@@ -82,8 +82,8 @@ def layout_change(i3, e):
                 i3.command('rename workspace to "%s:%s"' % (ws_num, format_string(str(ws_num) + ': ' + window_name)))
         elif layout in ('toggle split', 'splith', 'splitv'):
             i3.command('rename workspace to "%s:%s"' % (ws_num, format_string(str(ws_num) + ': ' + window_name)))
-    elif command[0] == 'split':
-        print("layout_change")
+    elif command[0] == 'split' and len(focused_workspace.nodes) > 0:
+        print("layout_change (split)")
         i3.command('rename workspace to "%s:%s"' % (ws_num, format_string(str(ws_num) + ': ' + window_name)))
 
     else:
