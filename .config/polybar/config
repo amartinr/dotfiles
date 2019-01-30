@@ -5,19 +5,19 @@
 ;
 ;===================================================================
 
-[bar/top]
-;monitor = HDMI1
+[bar/left]
 top = true
 fixed-centered = true
 modules-left = i3
-modules-center = xwindow
+modules-center = ws-left
 modules-right = network volume date
 background = #191b24
 foreground = #e2e2e2
+monitor = VGA-1
 
 font-0 = "Ionicons:size=11;2"
 font-1 = "Sans:size=10;2"
-font-2 = "Sans:weight=bold:size=10;2:antialias=true"
+font-2 = "Sans::style=bold:size=10;2:antialias=true"
 font-3 = "FontAwesome:size=10;2"
 
 padding = 1
@@ -27,10 +27,29 @@ tray-position = right
 
 line-size = 2
 
+[bar/right]
+top = true
+fixed-centered = true
+modules-left = i3
+modules-center = ws-right
+background = #191b24
+foreground = #e2e2e2
+monitor = VGA-2
+
+font-0 = "Ionicons:size=11;2"
+font-1 = "Sans:size=10;2"
+font-2 = "Sans::style=bold:size=10;2:antialias=true"
+font-3 = "FontAwesome:size=10;2"
+
+padding = 1
+module-margin = 1
+line-size = 2
+
 [module/i3]
 type = internal/i3
 enable-scroll = true
 format = <label-state> <label-mode>
+pin-workspaces = true
 
 label-focused = %name%
 label-focused-foreground = #F2F2F2
@@ -52,6 +71,18 @@ label-urgent-foreground = #F2F2F2
 label-urgent-padding = 1
 label-urgent-font = 4
 
+[module/ws-right]
+type = custom/script
+exec = ${HOME}/.scripts/i3/i3ipc_windows_name_right.py
+label-font = 3
+tail = true
+
+[module/ws-left]
+type = custom/script
+exec = ${HOME}/.scripts/i3/i3ipc_windows_name_left.py
+label-font = 3
+tail = true
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:100:...%
@@ -59,23 +90,37 @@ label-font = 3
 
 [module/network]
 type = internal/network
-interface = eth0
+interface = enp0s8
 interval = 3
 
-#label-connected = "%{A1:nm-connection-editor -e 34fff321-0e71-4702-a369-05216df4661e:}%{A}"
+;label-connected = "%{A1:nm-connection-editor -e 34fff321-0e71-4702-a369-05216df4661e:}%{A}"
 label-connected = 
 label-disconnected = 
 
 click-left = nm-connection-editor -e 34fff321-0e71-4702-a369-05216df4661e
 
+;[module/volume]
+;type = internal/alsa
+;
+;master-soundcard = hw:0
+;headphone-soundcard = hw:2
+;
+;master-mixer = Master
+;headphone-mixer = Speaker
+;headphone-id = 6
+;format-volume = %{A2:pavucontrol &:}<ramp-volume> <label-volume>%{A} 
+;format-muted = %{A2:pavucontrol &:}<label-muted>%{A}
+;
+;label-muted = 
+;
+;ramp-volume-0 = 
+;ramp-volume-1 = 
+;ramp-volume-2 = 
+
 [module/volume]
-type = internal/volume
-
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = default
-
-master-mixer = Master
+type = internal/pulseaudio
+sink = alsa_output.usb-GN_Netcom_A_S_Jabra_EVOLVE_20_000231E5223207-00.analog-stereo
+use-ui-max = false
 
 format-volume = %{A2:pavucontrol &:}<ramp-volume> <label-volume>%{A} 
 format-muted = %{A2:pavucontrol &:}<label-muted>%{A}
