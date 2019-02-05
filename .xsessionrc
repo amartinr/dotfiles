@@ -1,7 +1,2 @@
-## set terminal bell off
+# set terminal bell off
 xset b off
-
-## add user binaries to path
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
