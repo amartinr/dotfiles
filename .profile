@@ -8,7 +8,7 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-## atomic concole theme
+## atomic console theme
 if [[ "$TERM" = "linux" ]]; then                                                                                                                                                                                     
     echo -en "\e]P0141A1F"
     echo -en "\e]P1EC5252"
@@ -38,9 +38,9 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+#if [ -d "$HOME/bin" ] ; then
+#    PATH="$HOME/bin:$PATH"
+#fi
 
 # disable bell for system terminal
 if [[ "$TERM" = "linux" ]]; then

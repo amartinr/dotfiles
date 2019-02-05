@@ -18,6 +18,8 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=5000
 HISTFILESIZE=10000
+HISTTIMEFORMAT=${HISTTIMEFORMAT:-"%d/%m/%y %T "}
+HISTIGNORE=${HISTIGNORE:-"clear:bg:fg:cd:cd -:exit:date:w:* --help:history:top"}
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -164,7 +166,3 @@ if [ -f ~/.shell_prompt.sh ]; then
         . ~/.shell_prompt.sh
     esac
 fi
-
-## oracle
-export TNS_ADMIN="/media/network/W:/ora/tns_adminX"
-export NLS_LANG=spanish_spain.WE8ISO8859P15
