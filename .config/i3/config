@@ -13,7 +13,7 @@ new_window normal
 smart_borders on
 smart_gaps on
 gaps inner 10
-gaps outer 5
+gaps outer 2
 
 for_window [class="^.*"] border pixel 0
 for_window [class="^Termite|^Terminator|Xfce4-terminal|URxvt"] border pixel 1
@@ -84,14 +84,14 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 mode "move" {
-    bindsym Up move up 20px
-    bindsym Left move left 20px
-    bindsym Down move down 20px
-    bindsym Right move right 20px
-    bindsym j move left 20px
-    bindsym k move down 20px
-    bindsym l move up 20px
-    bindsym ntilde move right 20px
+    bindsym Up move up 25px
+    bindsym Left move left 25px
+    bindsym Down move down 25px
+    bindsym Right move right 25px
+    bindsym j move left 25px
+    bindsym k move down 25px
+    bindsym l move up 25px
+    bindsym ntilde move right 25px
 
     bindsym $mod+m mode "default"
     bindsym Return mode "default"
@@ -111,39 +111,61 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+y focus child
 
-set $workspace1 1: 
-set $workspace2 2: 
-set $workspace3 3: 
+#set $workspace1 1: 
+#set $workspace2 2: 
+#set $workspace3 3: 
+
+set $workspace1 1
+set $workspace2 2
+set $workspace3 3
+set $workspace4 4
+set $workspace5 5
+set $workspace6 6
+set $workspace7 7
+set $workspace8 8
+set $workspace9 9
+set $workspace10 10
+
+workspace $workspace1 output VGA-1
+workspace $workspace2 output VGA-1
+workspace $workspace3 output VGA-1
+workspace $workspace4 output VGA-2
+workspace $workspace5 output VGA-2
+workspace $workspace6 output VGA-2
+workspace $workspace7 output VGA-2
+workspace $workspace8 output VGA-2
+workspace $workspace9 output VGA-2
+workspace $workspace10 output VGA-2
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec "i3-msg restart; sleep 1; pkill polybar; sleep 1; polybar -q -r top &"
+bindsym $mod+Shift+r exec "i3-msg restart; sleep 1; pkill polybar; sleep 1; polybar -q -r right & polybar -q -r left &"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -156,16 +178,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 25 px or 5 ppt
+        bindsym k resize grow height 25 px or 5 ppt
+        bindsym l resize shrink height 25 px or 5 ppt
+        bindsym ntilde resize grow width 25 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 25 px or 5 ppt
+        bindsym Down resize grow height 25 px or 5 ppt
+        bindsym Up resize shrink height 25 px or 5 ppt
+        bindsym Right resize grow width 25 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -245,9 +267,9 @@ client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 ## blank screen
 exec --no-startup-id xset s 180 300
 ## lock screen
-set $lock_command ~/.scripts/i3lock-dunst.sh
-exec --no-startup-id xautolock -time 5 -detectsleep -locker "$lock_command"
-bindsym $mod+Shift+x exec $lock_command
+#set $lock_command ~/.scripts/i3lock-dunst.sh
+#exec --no-startup-id xautolock -time 5 -detectsleep -locker "$lock_command"
+#bindsym $mod+Shift+x exec $lock_command
 
 ## screenshot
 bindsym Print exec scrot -u -z -e 'mv $f ~/Pictures/screenshots/'
@@ -259,9 +281,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% &&
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
 
-## background
-exec --no-startup-id feh --bg-fill ~/.wallpapers/wallpaper-blur-12.jpg
-
 ## composition
 exec --no-startup-id compton -b
 
@@ -272,10 +291,10 @@ exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py &
 #exec_always --no-startup-id ~/.scripts/i3/i3ipc_floating_terminals.py &
 
 ## open programs from already running programs as floating windows
-exec_always --no-startup-id ~/.scripts/i3/i3ipc_floating_windows.py &
+#exec_always --no-startup-id ~/.scripts/i3/i3ipc_floating_windows.py &
 
 ## polybar
-exec --no-startup-id polybar -r top &
+exec --no-startup-id polybar -q -r right & polybar -q -r left &
 
 ## floating windows
 for_window [class="Lxappearance"] floating enable
@@ -291,7 +310,7 @@ for_window [class="feh"] floating enable
 #for_window [class="Qgis.bin" title="::"] floating enable
 
 ## assign windows to workspaces
-assign [class="Thunderbird"] "3: "
+#assign [class="Thunderbird"] "3: "
 #assign [title="QGIS"] "9"
 
 ## udisks
@@ -300,8 +319,9 @@ exec --no-startup-id udiskie --automount --notify --smart-tray --use-udisks2 &
 ## remmina
 #exec --no-startup-id remmina -i &
 
-## have fun! ;)
-#bindsym $mod+Shift+Return exec ~/.scripts/i3/fun-mode.sh
+## randr and wallpaper
+exec_always --no-startup-id ~/.screenlayout/arandr.sh && feh --bg-fill ~/.wallpapers/wallpaper-blur-12.jpg
 
 ## autostart
-exec --no-startup-id i3-msg 'workspace $workspace2; exec ~/.local/opt/firefox/firefox --no-remote -p quantum; workspace $workspace3; exec /usr/bin/thunderbird; workspace $workspace1; exec i3-sensible-terminal'
+#exec --no-startup-id i3-msg 'workspace $workspace2; exec google-chrome; workspace $workspace3; exec google-chrome --app=https://mail.google.com --new-window; workspace $workspace1; exec i3-sensible-terminal'
+exec --no-startup-id i3-msg 'workspace $workspace1; exec google-chrome'
