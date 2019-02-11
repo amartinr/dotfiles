@@ -14,11 +14,14 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'edkolev/promptline.vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'vimperator/vimperator.vim'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -66,6 +69,13 @@ else
     colorscheme atomic
 endif
 
+let g:promptline_preset = {
+        \'b' : [ promptline#slices#python_virtualenv(), '$USER' ],
+        \'a' : [ promptline#slices#vcs_branch() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'options': {
+          \'left_sections' : [ 'b', 'a', 'c' ],
+          \'left_only_sections' : [ 'b', 'a', 'c' ]}}
 
 " Flag unnecesary whitespaces (after colorscheme)
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -73,6 +83,7 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " a line below the current line
 set cursorline
+highlight MatchParen cterm=none ctermbg=white ctermfg=darkgray
 
 " UTF-8
 set encoding=utf-8
@@ -97,7 +108,7 @@ let mapleader = 'ç'
 
 " YouCompleteMe {
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
-let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_python_binary_path = '/usr/bin/python2'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/python/ycm/tests/testdata/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_server_keep_logfiles = 0
