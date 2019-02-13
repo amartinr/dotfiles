@@ -145,10 +145,22 @@ let g:jedi#show_call_signatures = "1"
 let python_highlight_all=1
 syntax on
 
-" run python scripts
+" run python and bash scripts
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
+autocmd FileType sh nnoremap <buffer> <F9> :exec '!bash' shellescape(@%, 1)<cr>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_sh_checkers = [ "shellcheck" ]
