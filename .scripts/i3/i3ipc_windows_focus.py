@@ -6,6 +6,7 @@ import i3ipc
 # to events.
 i3 = i3ipc.Connection()
 
+
 # Dynamically change windows title typeface to bold
 def on_window_focus(i3, e):
     leaves = i3.get_tree().leaves()
@@ -21,6 +22,7 @@ def on_window_focus(i3, e):
                 break
             else:
                 leaf.parent.command('title_format "%title"')
+
 
 # Subscribe to events
 i3.on("window::focus", on_window_focus)
