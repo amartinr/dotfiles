@@ -293,7 +293,9 @@ execute 'hi NonText '      . s:envir . 'fg=' . s:base3 . ' ' . s:envir . 'bg=' .
 execute 'hi SpecialKey '   . s:envir . 'fg=' . s:base3 . ' ' . s:envir . 'bg=' . s:base1 . ' ' . s:envir . '=none'
 " -------------------------.
 execute 'hi Search '       . s:envir . 'fg=' . s:acr70 . ' ' . s:envir . 'bg=' . s:base2 . ' ' . s:envir . '=bold'
-execute 'hi MatchParen '                                     . s:envir . 'bg=' . s:base2 . ' ' . s:envir . '=bold'
+" improve contrast when using cursorline
+"execute 'hi MatchParen '                                     . s:envir . 'bg=' . s:base2 . ' ' . s:envir . '=bold'
+execute 'hi MatchParen '   . s:envir . 'fg=' . s:acc50 . ' '  . s:envir . 'bg=' . s:base1 . ' ' . s:envir . '=bold'
 " -------------------------.
 execute 'hi TabLine '      . s:envir . 'fg=' . s:base1 . ' ' . s:envir . 'bg=' . s:base3 . ' ' . s:envir . '=none'
 execute 'hi TabLineSel '   . s:envir . 'fg=' . s:base1 . ' ' . s:envir . 'bg=' . s:acc50 . ' ' . s:envir . '=none'
