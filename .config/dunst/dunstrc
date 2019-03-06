@@ -15,7 +15,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = none
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -152,7 +152,7 @@
     # Display indicators for URLs (U) and actions (A).
     show_indicators = no
 
-    #"## Icons ###
+    ### Icons ###
 
     # Align icons left/right/off
     icon_position = left
@@ -178,7 +178,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/firefox -new-tab
+    browser = google-chrome --new-window 
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -290,7 +290,6 @@
 [firefox]
     appname = Firefox
     new_icon = /usr/share/icons/hicolor/32x32/apps/firefox-esr.png
-
 
 #[espeak]
 #    summary = "*"
