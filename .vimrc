@@ -37,16 +37,6 @@ set shiftwidth=4	" Indents will have a width of 4.
 set softtabstop=4	" Sets the number of columns for a TAB.
 set expandtab		" Expand TABs to spaces.
 
-" PEP8
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
-
 " colors
 set bg=dark
 set t_Co=256
@@ -120,14 +110,27 @@ let g:jedi#show_call_signatures = "1"
 "let g:jedi#rename_command = "<leader>r"
 "}
 
-let python_highlight_all=1
 syntax on
 
-" run python scripts
-autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+" run jekyll server for _config.yml
+autocmd BufRead,BufNewFile _config.yml map <buffer> <F9> :exec '!bundle exec jekyll serve --incremental'<cr>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0 " Don't auto open/close location list
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode = "passive"
+let g:syntastic_enable_signs = 0
+nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
+
+let g:syntastic_sh_checkers = [ "shellcheck" ]
