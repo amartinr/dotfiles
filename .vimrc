@@ -20,17 +20,9 @@ Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 
-" To ignore plugin indent changes, instead use:
+" Filetype detection and indentation
 filetype plugin on
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-    " Use filetype detection and file-based automatic indenting.
-    filetype plugin indent on
-
-    " Use actual tab chars in Makefiles.
-    autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
-endif
+filetype plugin indent on
 
 " For everything else, use a tab width of 4 space chars.
 set tabstop=4		" The width of a TAB is set to 4.
@@ -41,23 +33,12 @@ set shiftwidth=4	" Indents will have a width of 4.
 set softtabstop=4	" Sets the number of columns for a TAB.
 set expandtab		" Expand TABs to spaces.
 
-" PEP8
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
-
 " colors
 set bg=dark
 
 " Airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
-
 
 if &term=~'linux'
     set t_Co=8
@@ -83,7 +64,6 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " a line below the current line
 set cursorline
-highlight MatchParen cterm=none ctermbg=white ctermfg=darkgray
 
 " UTF-8
 set encoding=utf-8
@@ -95,7 +75,7 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
-" Remap move keys to behave like i3
+" Remap move keys to behave like i3 (Spanish keyboard)
 nnoremap ñ l
 nnoremap j h
 nnoremap l k
@@ -146,21 +126,24 @@ let python_highlight_all=1
 syntax on
 
 " run python and bash scripts
-autocmd FileType python nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
-autocmd FileType sh nnoremap <buffer> <F9> :exec '!bash' shellescape(@%, 1)<cr>
+"autocmd FileType sh nnoremap <buffer> <F9> :exec '!bash' shellescape(@%, 1)<cr>
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
+" Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 0 " Don't auto open/close location list
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode = "passive"
+let g:syntastic_enable_signs = 0
+nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
 
 let g:syntastic_sh_checkers = [ "shellcheck" ]
