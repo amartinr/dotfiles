@@ -71,15 +71,15 @@ label-urgent-foreground = #F2F2F2
 label-urgent-padding = 1
 label-urgent-font = 4
 
-[module/ws-right]
+[module/ws-left]
 type = custom/script
-exec = ${HOME}/.scripts/i3/i3ipc_windows_name_right.py
+exec = ${HOME}/.scripts/i3/i3ipc_windows_title.py --output VGA-1
 label-font = 3
 tail = true
 
-[module/ws-left]
+[module/ws-right]
 type = custom/script
-exec = ${HOME}/.scripts/i3/i3ipc_windows_name_left.py
+exec = ${HOME}/.scripts/i3/i3ipc_windows_title.py --output VGA-2
 label-font = 3
 tail = true
 

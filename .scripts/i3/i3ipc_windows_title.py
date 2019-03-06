@@ -1,10 +1,7 @@
 #!/usr/bin/python3 -u
 
 import i3ipc
-
-# Create the Connection object that can be used to send commands and subscribe
-# to events.
-i3 = i3ipc.Connection()
+from argparse import ArgumentParser
 
 
 def update_window_name(i3, e):
@@ -14,7 +11,10 @@ def update_window_name(i3, e):
     if focused_window.name is None:
         return
 
-    if focused_workspace.num <= 3:
+    focused_output = next(ws for ws in i3.get_workspaces()
+                          if ws["focused"] is True)["output"]
+
+    if focused_output == vars(args)["output"]:
         if focused_window.parent.layout in ('tabbed', 'stacked'):
             if len(focused_window.parent.nodes) > 1:
                 print()
@@ -31,11 +31,13 @@ def update_window_name(i3, e):
 
 def layout_change(i3, e):
     focused_window = i3.get_tree().find_focused()
-    focused_workspace = focused_window.workspace()
 
     command = e.binding.command.split(None, 1)
 
-    if focused_workspace.num <= 3:
+    focused_output = next(ws for ws in i3.get_workspaces()
+                          if ws["focused"] is True)["output"]
+
+    if focused_output == vars(args)["output"]:
         if command[0] == 'layout':
             layout = command[1]
             if layout in ('tabbed', 'stacking', 'stacked'):
@@ -51,10 +53,20 @@ def layout_change(i3, e):
         print()
 
 
+# Create the Connection object that can be used to send commands and subscribe
+# to events.
+i3 = i3ipc.Connection()
+
 i3.on('window::focus', update_window_name)
 i3.on('window::title', update_window_name)
 i3.on('window::close', update_window_name)
 i3.on('workspace::focus', update_window_name)
 i3.on('binding::run', layout_change)
+
+parser = ArgumentParser()
+parser.add_argument("-o", "--output", dest="output",
+                    help="set monitor output")
+
+args = parser.parse_args()
 
 i3.main()
