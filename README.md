@@ -48,4 +48,4 @@ A single terminal windows with no gaps, fully integrated into desktop.
 Some windows with neofetch, vim (stacked windows), man (tabbed windows) and terminal colors.
 ### Wallpaper
 ![wallpaper-blur-12](https://user-images.githubusercontent.com/22908043/30157442-9ed4401c-93c2-11e7-87b0-f9156d37af33.jpg)
-Desaturated version of http://wallpaper-gallery.net/images/wallpaper-blur/wallpaper-blur-12.jpg. Original author: ![Clara McGuire](https://www.flickr.com/people/addictixn/).
+Desaturated version of http://wallpaper-gallery.net/images/wallpaper-blur/wallpaper-blur-12.jpg. Original author: [Clara McGuire](https://www.flickr.com/people/addictixn/)
