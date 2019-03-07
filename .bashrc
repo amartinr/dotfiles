@@ -19,7 +19,7 @@ shopt -s histappend
 HISTSIZE=5000
 HISTFILESIZE=10000
 HISTTIMEFORMAT=${HISTTIMEFORMAT:-"%d/%m/%y %T "}
-HISTIGNORE=${HISTIGNORE:-"clear:bg:fg:cd:cd -:exit:date:w:* --help:history:top"}
+HISTIGNORE=${HISTIGNORE:-"clear:bg:fg:cd:cd -:exit:date:w:* --help"}
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -92,7 +92,8 @@ xterm*|rxvt*)
             ;;
             *)
                 # https://stackoverflow.com/questions/5076127/bash-update-terminal-title-by-running-a-second-command
-                echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~} ▶ $(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")\007"
+                # modified to make it work with current HISTTIMEFORMAT
+                echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~} ▶ $(history 1 | sed -r "s/^[ ]*[0-9]*[ ]*([0-9]{2}\/*){3}[ ]*([0-9]{2}:*){3}[ ]*//")\007"
             ;;
         esac
     }
