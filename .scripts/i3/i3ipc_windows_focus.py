@@ -1,11 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import i3ipc
 
 # Create the Connection object that can be used to send commands and subscribe
 # to events.
 i3 = i3ipc.Connection()
-
 
 # Dynamically change windows title typeface to bold
 def on_window_focus(i3, e):
@@ -22,7 +21,6 @@ def on_window_focus(i3, e):
                 break
             else:
                 leaf.parent.command('title_format "%title"')
-
 
 # Subscribe to events
 i3.on("window::focus", on_window_focus)
