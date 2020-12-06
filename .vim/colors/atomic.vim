@@ -1060,3 +1060,4 @@ execute 'hi markdownBlockQuote '        . s:envir . 'fg=' . s:acv50 . ' ' . s:en
 " --------------------------------------.
 execute 'hi markdownBold '              . s:envir . '=bold'
 execute 'hi markdownItalic '            . s:envir . '=italic'
+
