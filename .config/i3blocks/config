@@ -94,8 +94,17 @@ interval=30
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [wifi]
 command=~/.scripts/i3blocks/wifi
-instance=wlan0
+instance=wlp2s0
 interval=30
+
+# OpenVPN support
+#
+# Support multiple VPN, with colors.
+[openvpn]
+command=~/.scripts/i3blocks/openvpn
+interval=20
+signal=11
+
 
 #[iface]
 #label=
@@ -115,9 +124,9 @@ interval=30
 
 #if you prefer automatic updating
 [volume-pulseaudio]
-#command=~/.scripts/i3blocks/volume-pulseaudio -F3 -S -C "#e0d4d1" -c "#7d6965" -t 25 -T 75 -X 🔇 -L 🔈 -M 🔉 -H 🔊
-command=~/.scripts/i3blocks/volume-pulseaudio -F3 -S -C "#e0d4d1" -c "#7d6965" -t 25 -T 75 -X "🔇 "
-interval=persist
+#command=~/.scripts/i3blocks/volume-pulseaudio -F3 -S -C "#e0d4d1" -c "#7d6965" -t 25 -T 75 -X "🔇 "
+command=~/.scripts/i3blocks/volume-pulseaudio -F3 -C "#e0d4d1" -c "#7d6965" -t 25 -T 75
+interval=once
 signal=10
 
 #if you prefer updating only when signaled
@@ -148,7 +157,7 @@ interval=10
 
 [time]
 #label=🕓
-#command=echo "$(date '+%H:%M')" && [[ -z "${BLOCK_BUTTON}" ]] || gsimplecal &
+#command=echo "$(date '+%H:%M')"; [[ -z "${BLOCK_BUTTON}" ]] && gsimplecal
 command=date '+%H:%M'
 interval=5
 #border=#efeebe
@@ -161,12 +170,6 @@ interval=5
 #instance=spotify
 #interval=5
 #signal=10
-
-# OpenVPN support
-#
-# Support multiple VPN, with colors.
-#[openvpn]
-#interval=20
 
 # Key indicators
 #

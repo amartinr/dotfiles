@@ -1,24 +1,15 @@
-## X bell off
+# X bell off
 xset b off
 
 # add local to ACL
 xhost +local:root
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/.bashrc"
-    fi
-fi
+PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
 fi
-
-## 
-PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 
 #if xrandr -q | grep -q 'DP2 connected'; then
 #    xrandr --output LVDS1 --off
@@ -27,4 +18,12 @@ PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 # S.M.A.R.T. notifications
 smart-notifier &
 
+# DPMS settings
+xset s 300 600
+
+# X keys
+xbindkeys
+
+# Screen brightness and hue
+xbacklight -set 50
 redshift &

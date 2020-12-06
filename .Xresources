@@ -36,8 +36,10 @@
 *.color15: #A38C75
 
 ! URxvt
-URxvt.font: xft:LiterationMonoPowerline Nerd Font:regular:size=11.2:antialias=true
-URxvt.boldFont: xft:LiterationMonoPowerline Nerd Font:bold:size=11.2:antialias=true
+!URxvt.font: xft:LiterationMonoPowerline Nerd Font:regular:size=11:antialias=true
+!URxvt.boldFont: xft:LiterationMonoPowerline Nerd Font:bold:size=11:antialias=true
+URxvt.font: xft:LiterationMono Nerd Font:regular:size=11:antialias=true
+URxvt.boldFont: xft:LiterationMono Nerd Font:bold:size=11:antialias=true
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt*loginShell: false
@@ -53,4 +55,12 @@ URxvt*saveLines: 5000
 
 ! friendlier unicode entry
 URxvt.iso14755: false
-URxvt*perl-ext: unichr,matcher,-selection
+URxvt*perl-ext: default,matcher,unichr,-selection,url-select
+
+! url-select
+URxvt.colorUL: #8fa1b3
+URxvt.url-select.underline:      true
+URxvt.url-select.launcher:       firefox
+URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.matcher.button:     1
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]

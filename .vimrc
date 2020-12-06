@@ -13,6 +13,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'edkolev/promptline.vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'junegunn/limelight.vim'
 
 call vundle#end()
 
@@ -115,6 +116,9 @@ syntax on
 " run jekyll server for _config.yml
 autocmd BufRead,BufNewFile _config.yml map <buffer> <F9> :exec '!bundle exec jekyll serve --incremental'<cr>
 
+" run python scripts
+autocmd FileType python nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
+
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
@@ -130,7 +134,12 @@ let g:syntastic_auto_loc_list = 0 " Don't auto open/close location list
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode = "passive"
+"let g:syntastic_mode_map = { "mode": "passive" }
 let g:syntastic_enable_signs = 0
-nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
 
 let g:syntastic_sh_checkers = [ "shellcheck" ]
+
+nnoremap <F7> :SyntasticCheck<CR> :lopen<CR>
+
+let g:limelight_conceal_ctermfg = 'LightGray'
+let g:limelight_paragraph_span = 1

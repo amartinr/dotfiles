@@ -128,3 +128,7 @@ if [ -f ~/.shell_prompt.sh ]; then
         . ~/.shell_prompt.sh
     esac
 fi
+#source <(kubectl completion bash)
+
+# https://github.com/badaix/snapcast/issues/327
+export PULSE_LATENCY_MSEC=60
