@@ -202,3 +202,4 @@ else
     PROMPT_COMMAND='__promptline;'$'\n'"$PROMPT_COMMAND"
   fi
 fi
+

@@ -10,7 +10,7 @@ Plugin 'chrisbra/Colorizer.git'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'ycm-core/YouCompleteMe'
 Plugin 'edkolev/promptline.vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'vimperator/vimperator.vim'
@@ -87,15 +87,15 @@ let g:SimpylFold_docstring_preview=1
 let mapleader = 'ç' 
 
 " YouCompleteMe {
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
-let g:ycm_python_binary_path = '/usr/bin/python2'
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/python/ycm/tests/testdata/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_server_keep_logfiles = 0
-let g:ycm_server_log_level = 'warn'
-map <Leader>g  :YcmCompleter GoToDefinition<CR>
-
-" disable YCM for Python files
+"let g:ycm_server_python_interpreter = '/usr/bin/python2'
+"let g:ycm_python_binary_path = '/usr/bin/python2'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/python/ycm/tests/testdata/.ycm_extra_conf.py'
+"let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_server_keep_logfiles = 0
+"let g:ycm_server_log_level = 'warn'
+"map <Leader>g  :YcmCompleter GoToDefinition<CR>
+"
+"" disable YCM for Python files
 "let g:ycm_filetype_specific_completion_to_disable = { 'python' : 1 }
 "let g:ycm_filetype_blacklist = { 'python' : 1 }
 "}

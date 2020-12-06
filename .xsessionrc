@@ -1,2 +1,23 @@
 # set terminal bell off
 xset b off
+# add local to ACL
+xhost +local:root
+
+# Spanish keyboard
+setxkbmap -layout es
+
+# S.M.A.R.T. notifications
+smart-notifier &
+
+# multi-monitor setup
+XRANDR_OUT=$(xrandr --prop | grep -E "^\w+")
+
+if echo -n "$XRANDR_OUT" | grep -q -E "HDMI1\ connected.*700mm.*"; then
+    xrdb ~/.Xresources.tv
+    i3 -c ~/.config/i3/config.tv
+elif echo -n "$XRANDR_OUT" | grep -q -E "HDMI1\ connected"; then
+    i3 -c ~/.config/i3/config.multi
+else
+    redshift &
+    i3 -c ~/.config/i3/config
+fi

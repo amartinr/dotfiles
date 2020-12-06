@@ -1,48 +1,57 @@
-! colors
-*.foreground:   #D0D4DE
-*.background:   #2b303b
-*.cursorColor:  #C2C5CF
+! Base16 Ocean
+! Scheme: Chris Kempson (http://chriskempson.com)
 
-! black
-*.color0:       #2b303b
-*.color8:       #343A47
+#define base00 #2b303b
+#define base01 #343d46
+#define base02 #4f5b66
+#define base03 #65737e
+#define base04 #a7adba
+#define base05 #c0c5ce
+#define base06 #dfe1e8
+#define base07 #eff1f5
+#define base08 #bf616a
+#define base09 #d08770
+#define base0A #ebcb8b
+#define base0B #a3be8c
+#define base0C #96b5b4
+#define base0D #8fa1b3
+#define base0E #b48ead
+#define base0F #ab7967
 
-! red
-*.color1:       #733A40
-*.color9:       #bf616a
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
 
-! green
-*.color2:       #6E805E
-*.color10:      #a3be8c
+*.color0:       base00
+*.color1:       base08
+*.color2:       base0B
+*.color3:       base0A
+*.color4:       base0D
+*.color5:       base0E
+*.color6:       base0C
+*.color7:       base05
 
-! yellow
-*.color3:       #A68F61
-*.color11:      #ebcb8b
+*.color8:       base03
+*.color9:       base08
+*.color10:      base0B
+*.color11:      base0A
+*.color12:      base0D
+*.color13:      base0E
+*.color14:      base0C
+*.color15:      base07
 
-! blue
-*.color4:       #6F7C8A
-*.color12:      #8fa1b3
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*.color16:      base09
+*.color17:      base0F
+*.color18:      base01
+*.color19:      base02
+*.color20:      base04
+*.color21:      base06
 
-! magenta
-*.color5:       #856980
-*.color13:      #b48ead
-
-! cyan
-*.color6:       #6099A1
-*.color14:      #74B8C2
-
-! white
-*.color7:       #C2C5CF
-*.color15:      #D0D4DE
-
-! terminal name
-!URxvt*termName: xterm-256color
-
-! fonts
-URxvt.font: xft:LiterationMonoPowerline Nerd Font:regular:size=11.5:antialias=true
-URxvt.boldFont: xft:LiterationMonoPowerline Nerd Font:bold:size=11.5:antialias=true
-!URxvt.font: xft:Liberation Mono for Powerline:regular:size=11.5:antialias=true
-!URxvt.boldFont: xft:Liberation Mono for Powerline:bold:size=11.5:antialias=true
+! URxvt
+URxvt.font: xft:LiterationMono Nerd Font:regular:size=11.6:antialias=true
+URxvt.boldFont: xft:LiterationMono Nerd Font:bold:size=11.6:antialias=true
 
 URxvt.letterSpace: -1
 
@@ -75,7 +84,7 @@ URxvt*saveLines: 5000
 ! unicode entry (https://emergent.unpythonic.net/01340900642)
 URxvt*perl-ext-common: default,unichr,matcher,-selection,keyboard-select
 
-! disable keycap insert picture mode
+! diable keycap insert picture mode
 URxvt.iso14755: true
 URxvt.iso14755_52: false
 

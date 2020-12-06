@@ -2,18 +2,12 @@
 set $mod Mod1
 
 ## font
-font pango:Ionicons 10
-font pango:Sans 10
+font pango: Noto Mono 10, Sans 10
+#font pango: FontAwesome 10, Sans 10
 
 floating_modifier $mod
 hide_edge_borders both
 new_window normal
-
-## i3-gaps
-smart_borders on
-smart_gaps on
-gaps inner 10
-gaps outer 2
 
 for_window [class="^.*"] border pixel 0
 for_window [class="^Termite|^Terminator|Xfce4-terminal|URxvt"] border pixel 1
@@ -30,6 +24,7 @@ bindsym $mod+Shift+q kill
 set $rofi_options -run-list-command "~/.scripts/aliases.sh" -run-command "/bin/bash -i -c '{cmd}'" -lines 10 -eh 1 -width 50% -padding 8 -opacity 100 -bw 0
 bindsym $mod+d exec rofi -show run $rofi_options
 bindsym $mod+Shift+h exec rofi -show ssh $rofi_options
+#bindsym $mod+d exec dmenu_run -b
 
 # change focus
 bindsym $mod+j focus left
@@ -111,55 +106,40 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+y focus child
 
-#set $workspace1 1: 
-#set $workspace2 2: 
-#set $workspace3 3: 
-
-set $workspace1 1
-set $workspace2 2
-set $workspace3 3
-set $workspace4 4
-set $workspace5 5
-set $workspace6 6
-set $workspace7 7
-set $workspace8 8
-set $workspace9 9
-set $workspace10 10
-
-workspace $workspace1 output VGA-1
-workspace $workspace2 output VGA-1
-workspace $workspace3 output VGA-1
-workspace $workspace4 output VGA-2
-workspace $workspace5 output VGA-2
-workspace $workspace6 output VGA-2
-workspace $workspace7 output VGA-2
-workspace $workspace8 output VGA-2
-workspace $workspace9 output VGA-2
-workspace $workspace10 output VGA-2
+set $workspace1 "workspace number 1"
+set $workspace2 "workspace number 2"
+set $workspace3 "workspace number 3"
+set $workspace4 "workspace number 4"
+set $workspace5 "workspace number 5"
+set $workspace6 "workspace number 6"
+set $workspace7 "workspace number 7"
+set $workspace8 "workspace number 8"
+set $workspace9 "workspace number 9"
+set $workspace10 "workspace number 10"
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1 $workspace1
+bindsym $mod+2 $workspace2
+bindsym $mod+3 $workspace3
+bindsym $mod+4 $workspace4
+bindsym $mod+5 $workspace5
+bindsym $mod+6 $workspace6
+bindsym $mod+7 $workspace7
+bindsym $mod+8 $workspace8
+bindsym $mod+9 $workspace9
+bindsym $mod+0 $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to $workspace1
+bindsym $mod+Shift+2 move container to $workspace2
+bindsym $mod+Shift+3 move container to $workspace3
+bindsym $mod+Shift+4 move container to $workspace4
+bindsym $mod+Shift+5 move container to $workspace5
+bindsym $mod+Shift+6 move container to $workspace6
+bindsym $mod+Shift+7 move container to $workspace7
+bindsym $mod+Shift+8 move container to $workspace8
+bindsym $mod+Shift+9 move container to $workspace9
+bindsym $mod+Shift+0 move container to $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -178,16 +158,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 25 px or 5 ppt
-        bindsym k resize grow height 25 px or 5 ppt
-        bindsym l resize shrink height 25 px or 5 ppt
-        bindsym ntilde resize grow width 25 px or 5 ppt
+        bindsym j resize shrink width 10 px or 2 ppt
+        bindsym k resize grow height 10 px or 2 ppt
+        bindsym l resize shrink height 10 px or 2 ppt
+        bindsym ntilde resize grow width 10 px or 2 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 25 px or 5 ppt
-        bindsym Down resize grow height 25 px or 5 ppt
-        bindsym Up resize shrink height 25 px or 5 ppt
-        bindsym Right resize grow width 25 px or 5 ppt
+        bindsym Left resize shrink width 10 px or 2 ppt
+        bindsym Down resize grow height 10 px or 2 ppt
+        bindsym Up resize shrink height 10 px or 2 ppt
+        bindsym Right resize grow width 10 px or 2 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -218,22 +198,21 @@ set $ws_urgent_border #1f222d
 set $ws_urgent_bg #1f222d
 set $ws_urgent_text #ee829f
 
-###bar {
-###    position top
-###    font pango:FontAwesome 10
-###    status_command i3blocks
-###    #status_command i3status
-###    colors {
-###        separator $bar_separator
-###        background $bar_bg
-###        statusline $bar_statusline
-###        #                  border  background text
-###        focused_workspace  $ws_focused_border $ws_focused_bg $ws_focused_text
-###        active_workspace  $ws_active_border $ws_active_bg $ws_active_text
-###        inactive_workspace  $ws_inactive_border $ws_inactive_bg $ws_inactive_text
-###        urgent_workspace  $ws_urgent_border $ws_urgent_bg $ws_urgent_text
-###    }
-###}
+bar {
+    position top
+    status_command i3blocks
+    strip_workspace_numbers yes
+    colors {
+        separator $bar_separator
+        background $bar_bg
+        statusline $bar_statusline
+        #                  border  background text
+        focused_workspace  $ws_focused_border $ws_focused_bg $ws_focused_text
+        active_workspace  $ws_active_border $ws_active_bg $ws_active_text
+        inactive_workspace  $ws_inactive_border $ws_inactive_bg $ws_inactive_text
+        urgent_workspace  $ws_urgent_border $ws_urgent_bg $ws_urgent_text
+    }
+}
 
 ## windows colors
 set $active_border #1f222d
@@ -242,17 +221,12 @@ set $active_text #FFFFFF
 set $active_indicator #72818F
 set $active_child_border #1f222d
 
-#set $inactive_border #252936
 set $inactive_border #252936
 set $inactive_bg #252936
 set $inactive_text #72818F
 set $inactive_indicator #434C54
 set $inactive_child_border #252936
 
-#set $urgent_border #252936
-#set $urgent_bg #ee829f
-#set $urgent_text #101218
-#set $urgent_indicator #333859
 set $urgent_border #72818F
 set $urgent_bg #72818F
 set $urgent_text #1f222d
@@ -267,21 +241,27 @@ client.urgent           $urgent_border $urgent_bg $urgent_text $urgent_indicator
 ## blank screen
 exec --no-startup-id xset s 180 300
 ## lock screen
-#set $lock_command ~/.scripts/i3lock-dunst.sh
-#exec --no-startup-id xautolock -time 5 -detectsleep -locker "$lock_command"
-#bindsym $mod+Shift+x exec $lock_command
+set $lock_command ~/.scripts/i3lock-dunst.sh
+exec --no-startup-id xautolock -time 5 -detectsleep -locker "$lock_command"
+bindsym $mod+Shift+x exec $lock_command
 
 ## screenshot
 bindsym Print exec scrot -u -z -e 'mv $f ~/Pictures/screenshots/'
 bindsym $mod+Print exec scrot -z -e 'mv $f ~/Pictures/screenshots/'
-
 
 ## PulseAudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pkill -RTMIN+10 i3blocks
 
-## composition
+## backlight
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+
+## adjust resolution
+exec --no-startup-id autorandr -l default && feh --bg-fill ~/.wallpapers/rainy-night.jpg
+
+## enable composition
 exec --no-startup-id compton -b
 
 ## bolden active windows title
@@ -293,8 +273,10 @@ exec_always --no-startup-id ~/.scripts/i3/i3ipc_windows_focus.py &
 ## open programs from already running programs as floating windows
 #exec_always --no-startup-id ~/.scripts/i3/i3ipc_floating_windows.py &
 
-## polybar
-exec --no-startup-id polybar -q -r right & polybar -q -r left &
+## rename workspaces
+exec_always --no-startup-id ~/.scripts/i3/i3ipc_rename_workspace.py
+exec --no-startup-id i3-msg -t command workspace 1 && i3-msg -t command 'rename workspace to "1:<b>1</b>"'
+#exec --no-startup-id i3wsr  -r -n -i awesome --config ~/.config/i3wsr/config
 
 ## floating windows
 for_window [class="Lxappearance"] floating enable
@@ -309,19 +291,5 @@ for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move d
 for_window [class="feh"] floating enable
 #for_window [class="Qgis.bin" title="::"] floating enable
 
-## assign windows to workspaces
-#assign [class="Thunderbird"] "3: "
-#assign [title="QGIS"] "9"
-
 ## udisks
 exec --no-startup-id udiskie --automount --notify --smart-tray --use-udisks2 &
-
-## remmina
-#exec --no-startup-id remmina -i &
-
-## randr and wallpaper
-exec_always --no-startup-id ~/.screenlayout/arandr.sh && feh --bg-fill ~/.wallpapers/wallpaper-blur-12.jpg
-
-## autostart
-#exec --no-startup-id i3-msg 'workspace $workspace2; exec google-chrome; workspace $workspace3; exec google-chrome --app=https://mail.google.com --new-window; workspace $workspace1; exec i3-sensible-terminal'
-exec --no-startup-id i3-msg 'workspace $workspace1; exec google-chrome'
