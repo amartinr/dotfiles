@@ -132,17 +132,9 @@ interval=10
 
 #if you prefer automatic updating
 [volume-pulseaudio]
-#command=~/.scripts/i3blocks/volume-pulseaudio -F3 -S -C "#e0d4d1" -c "#7d6965" -t 25 -T 75 -X 🔇 -L 🔈 -M 🔉 -H 🔊
-command=~/.scripts/i3blocks/volume-pulseaudio -F3 -S -C "#e0d4d1" -c "#7d6965" -t 25 -T 75 -X "🔇 "
-interval=persist
+command=~/.scripts/i3blocks/volume-pulseaudio -F '${SYMB} ${VOL}%' -C "#d1d4e0" -c "#828CA1" -t 25 -T 75
+interval=once
 signal=10
-
-#if you prefer updating only when signaled
-#[volume-pulseaudio]
-#command=~/.scripts/i3blocks/volume-pulseaudio -F3 -C "#e0d4d1" -c "#7d6965"
-#interval=once
-#signal=10
-
 
 # Date Time
 #
