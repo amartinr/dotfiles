@@ -38,8 +38,8 @@ command=~/.scripts/i3blocks/xtitle -s
 markup=pango
 interval=persist
 align=center
-separator_block_width=100
-min_width=800
+separator_block_width=80
+min_width=640
 
 #--## Memory usage
 #--#[memory]
