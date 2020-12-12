@@ -33,13 +33,13 @@ markup=none
 #border_right=0
 #border_bottom=0
 
-[window]
-command=~/.scripts/i3blocks/xtitle -s
-markup=pango
-interval=persist
-align=center
-separator_block_width=100
-min_width=800
+#[window]
+#command=~/.scripts/i3blocks/xtitle -s
+#markup=pango
+#interval=persist
+#align=center
+#separator_block_width=100
+#min_width=800
 
 #--## Memory usage
 #--#[memory]
