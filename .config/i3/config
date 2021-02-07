@@ -246,7 +246,7 @@ bindsym $mod+Shift+x exec $lock_command
 
 ## screenshot
 bindsym Print exec scrot -u -z -e 'mv $f ~/Pictures/screenshots/'
-bindsym $mod+Print exec scrot -z -e 'mv $f ~/Pictures/screenshots/'
+bindsym Control+Print exec scrot -z -e 'mv $f ~/Pictures/screenshots/'
 
 ## PulseAudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks
