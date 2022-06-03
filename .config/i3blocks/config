@@ -1,0 +1,159 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator=false
+separator_block_width=9
+markup=pango
+
+#[window]
+#command=~/.local/bin/i3blocks-xtitle -s
+#markup=pango
+#interval=persist
+#align=center
+#separator_block_width=100
+#min_width=800
+
+# Memory usage
+[memory]
+label=
+interval=30
+#border=#e77921
+
+# CPU usage
+#
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[cpu_usage]
+label=
+interval=5
+min_width=100%
+#border=#2b66e5
+separator_block_width=0
+
+[load_average]
+label= /
+interval=10
+separator=false
+#border=#2b66e5
+
+# Temperature
+[temperature]
+label=
+command=~/.local/bin/i3blocks-temperature
+interval=30
+
+# Disk usage
+[disk]
+label=
+instance=/
+interval=60
+#border=#d7a921
+separator_block_width=0
+
+[disk]
+label= 
+instance=/home
+interval=60
+#border=#d7a921
+
+
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+#[wifi]
+#command=~/.local/bin/i3blocks-wifi
+#instance=wlp0s20f3
+#interval=30
+
+# OpenVPN support
+#
+# Support multiple VPN, with colors.
+#[openvpn]
+#command=~/.local/bin/i3blocks-openvpn
+#interval=20
+#signal=11
+
+[iface]
+label=🖧
+interval=30
+
+# Battery indicator
+#
+# The battery instance defaults to 0.
+#--[battery]
+#--#label=⚡
+#--command=~/.local/bin/i3blocks-battery
+#--instance=0
+#--interval=10
+
+# PulseAudio volume indicator
+[volume-pulseaudio]
+command=~/.local/bin/i3blocks-volume-pulseaudio -F '${SYMB} ${VOL}%' -C "#d1d4e0" -c "#828CA1" -t 25 -T 75
+interval=once
+#command=~/.local/bin/i3blocks-volume-pulseaudio -S -F '${SYMB} ${VOL}%' -C "#d1d4e0" -c "#828CA1" -t 25 -T 75
+#interval=persist
+signal=10
+
+# Date Time
+#
+[date]
+#label=
+command=test "$BLOCK_BUTTON" = "1" && i3-msg -q exec gsimplecal; date '+%d/%m/%Y'
+interval=300
+
+
+[time]
+#label=🕓
+command=date '+%H:%M'
+interval=5
+#border=#efeebe
+
+# Generic media player support
+#
+# This displays "ARTIST - SONG" if a music is playing.
+# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
+#[mediaplayer]
+#instance=spotify
+#interval=5
+#signal=10
+
+# Key indicators
+#
+# Add the following bindings to i3 config file:
+#
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+#[keyindicator]
+#instance=CAPS
+#interval=once
+#signal=11
+
+#[keyindicator]
+#instance=NUM
+#interval=once
+#signal=11
