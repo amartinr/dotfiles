@@ -1,0 +1,15 @@
+[Unit]
+Description=Mounts OneDrive resource on user's media folder
+DefaultDependencies=no
+After=systemd-tmpfiles-setup.service
+RefuseManualStop=no
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=%h/.local/bin/onedriver -d /media/%u/onedrive &
+ExecStop=fusermount -uz /media/%u/onedrive
+SuccessExitStatus=0
+
+[Install]
+WantedBy=basic.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Bind mounts user's cache on memory
+DefaultDependencies=no
+After=systemd-tmpfiles-setup.service
+ConditionPathIsDirectory=/run/user/%U/cache
+RefuseManualStop=yes
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=bindfs /run/user/%U/cache %h/.cache
+ExecStop=fusermount -u %h/.cache
+SuccessExitStatus=0
+
+[Install]
+WantedBy=basic.target
