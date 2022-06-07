@@ -1,0 +1,20 @@
+# set terminal bell off
+xset b off
+xset -b
+
+xset s blank
+xset s 300 180
+
+# add local to ACL
+xhost +local:root
+
+# Spanish keyboard
+setxkbmap -layout es
+
+# Include .profile
+if [ -f "$HOME/.profile" ] ; then
+    . "$HOME/.profile"
+fi
+
+# Launch i3
+exec i3
