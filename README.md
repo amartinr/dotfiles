@@ -1,3 +1,5 @@
+**Installed packages**
+
 * accountsservice
 * acl
 * acpi
@@ -2858,3 +2860,7 @@
 * zlib1g:amd64
 * zlib1g:i386
 * zlib1g-dev:amd64
+
+**flatpak list**
+
+* org.mozilla.firefox
