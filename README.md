@@ -2864,3 +2864,9 @@
 **flatpak list**
 
 * org.mozilla.firefox
+
+**local src**
+
+* i3-resurrect
+* mkinitcpio-numclock
+* onedriver
