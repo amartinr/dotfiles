@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+
+##Check VPN status
+GET_VPN=$(nmcli con show | grep tun0 | cut -d ' ' -f1)
+
+##Store status in STATUS
+if [[ $GET_VPN == *"tun0"* ]]
+then   
+    STATUS=
+else
+    STATUS=
+fi
+
+
+
+echo $STATUS
+echo $STATUS
+
+"#e0d4d1" -c "#7d6965"
+
+##Colors
+if [[ "$STATUS" == "" ]]
+then
+    echo "#e0d4d1"
+else
+    echo "#7d6965"
+fi
