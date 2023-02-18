@@ -314,4 +314,4 @@ for_window [title="Thunderbird Preferences"] floating enable
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse, move down 20 px
 
 # restore workspaces
-exec --no-startup-id i3-msg workspace 10 && i3-resurrect restore -w 10 && sleep 5 && i3-msg workspace 1 && i3-resurrect restore -w 1 &
+#exec --no-startup-id i3-msg workspace 10 && i3-resurrect restore -w 10 && sleep 5 && i3-msg workspace 1 && i3-resurrect restore -w 1 &

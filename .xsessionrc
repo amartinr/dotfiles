@@ -16,5 +16,7 @@ if [ -f "$HOME/.profile" ] ; then
     . "$HOME/.profile"
 fi
 
+$HOME/.screenlayout/auto.sh
+
 # Launch i3
 exec i3
