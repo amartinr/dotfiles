@@ -1,0 +1,3 @@
+#!/bin/sh
+~/.local/opt/firefox/firefox -P clean
+#flatpak run --filesystem=home org.mozilla.firefox -P default-release
