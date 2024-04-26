@@ -1,0 +1,15 @@
+[Unit]
+Description=Mount pulseaudio user directory on /run/user
+After=systemd-tmpfiles-setup.service
+Before=pulseaudio.service
+ConditionPathExists=!/media/WD-Elements_25A2/user/home/pi/.config/pulse
+ConditionPathIsMountPoint=!/media/WD-Elements_25A2/user
+
+[Mount]
+What=/run/user/%U/config/pulse
+Where=/home/%u/.config/pulse
+Type=fuse.bindfs
+#Options=0700
+
+[Install]
+WantedBy=default.target

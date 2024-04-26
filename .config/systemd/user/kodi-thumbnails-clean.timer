@@ -1,0 +1,13 @@
+[Unit]
+Description=Cleanup of Kodi thumbnails directory every two minutes
+ConditionPathExists=!/media/WD-Elements_25A2/user/home/pi/.kodi/userdata/Thumbnails
+ConditionPathIsMountPoint=!/media/WD-Elements_25A2/user
+
+[Timer]
+#OnCalendar=*-*-* */2:0:0 
+#RandomizedDelaySec=60
+OnUnitActiveSec=2m
+Persistent=false
+
+[Install]
+WantedBy=timers.target

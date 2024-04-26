@@ -1,0 +1,10 @@
+[Unit]
+Description=Cleanup of Chromium data directory every two hours
+
+[Timer]
+OnCalendar=0/2:00:00
+RandomizedDelaySec=300
+Persistent=false
+
+[Install]
+WantedBy=timers.target

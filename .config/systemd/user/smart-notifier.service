@@ -1,0 +1,17 @@
+[Unit]
+Description=S.M.A.R.T. notifications
+Wants=smartmontools.service
+After=smartmontools.service
+Requisite=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=exec
+Slice=app.slice
+ExecStart=:/usr/bin/smart-notifier
+ExitType=cgroup
+TimeoutStopSec=5s
+Restart=no
+
+[Install]
+WantedBy=graphical-session.target

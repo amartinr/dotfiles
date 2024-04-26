@@ -1,0 +1,14 @@
+[Unit]
+Description=Clean Kodi thumbnails
+DefaultDependencies=no
+After=systemd-tmpfiles-setup.service
+RefuseManualStop=yes
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/bin/rsync --delete -av -q /home/%u/.kodi/userdata/backup/Thumbnails/ /home/%u/.kodi/userdata/Thumbnails/
+SuccessExitStatus=0
+
+[Install]
+WantedBy=default.target

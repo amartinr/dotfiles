@@ -1,0 +1,14 @@
+[Unit]
+Description=Restore Kodi User's Databases
+DefaultDependencies=no
+After=systemd-tmpfiles-setup.service
+RefuseManualStop=yes
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/bin/bash -c "/bin/cp -rf /home/pi/.kodi/userdata/backup/Database/*.db /home/pi/.kodi/temp/Database/"
+SuccessExitStatus=0
+
+[Install]
+WantedBy=default.target

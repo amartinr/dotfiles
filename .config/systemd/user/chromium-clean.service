@@ -1,0 +1,8 @@
+[Unit]
+Description=Clean Chromium Browser user data
+RefuseManualStart=true
+
+[Service]
+Type=oneshot
+ExecCondition=/bin/bash -c "! /usr/bin/pgrep chromium >& /dev/null && ! /usr/bin/pgrep rsync >& /dev/null"
+ExecStart=rsync -avq --delete /home/%u/.config/chromium-backup/ /home/%u/.config/chromium/

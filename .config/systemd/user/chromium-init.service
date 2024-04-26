@@ -1,0 +1,10 @@
+[Unit]
+Description=Initialize Chromium Browser user configuration
+After=systemd-tmpfiles-setup.service
+
+[Service]
+Type=oneshot
+ExecStart=rsync -avq /home/%u/.config/chromium-backup/ /home/%u/.config/chromium/
+
+[Install]
+WantedBy=default.target

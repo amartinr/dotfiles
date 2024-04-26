@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount Kodi thumbnails directory on /run/user
+After=systemd-tmpfiles-setup.service
+ConditionPathExists=!/media/WD-Elements_25A2/user/home/pi/.kodi/userdata/Thumbnails
+ConditionPathIsMountPoint=!/media/WD-Elements_25A2/user
+
+[Mount]
+What=/run/user/%U/kodi/userdata/Thumbnails
+Where=/home/%u/.kodi/userdata/Thumbnails
+Type=fuse.bindfs
+#Options=0700
+
+[Install]
+WantedBy=default.target

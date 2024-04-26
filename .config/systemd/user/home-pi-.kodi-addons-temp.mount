@@ -1,0 +1,12 @@
+[Unit]
+Description=Mount Kodi addons temp directory on /run/user
+After=systemd-tmpfiles-setup.service
+
+[Mount]
+What=/run/user/%U/kodi/temp/temp
+Where=/home/%u/.kodi/addons/temp
+Type=fuse.bindfs
+#Options=0700
+
+[Install]
+WantedBy=default.target
