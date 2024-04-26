@@ -1,2 +1,6 @@
 #!/bin/bash
-flatpak run --filesystem=home org.mozilla.firefox $1
+FLATPAK_USER_DIR=$(readlink -f ~/.local/share/flatpak) exec flatpak \
+    --user run \
+    --filesystem=home \
+    --filesystem=xdg-run/amartinr-firefox-dyil9ktl.new \
+    org.mozilla.firefox $@

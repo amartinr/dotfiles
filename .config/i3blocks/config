@@ -85,10 +85,10 @@ interval=60
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-#[wifi]
-#command=~/.local/bin/i3blocks-wifi
-#instance=wlp0s20f3
-#interval=30
+[wifi]
+command=~/.local/bin/i3blocks-wifi
+instance=wlp2s0
+interval=30
 
 # OpenVPN support
 #
@@ -99,7 +99,7 @@ interval=60
 #signal=11
 
 [iface]
-label=🖧
+#label=🖧
 interval=30
 
 # Battery indicator
@@ -113,9 +113,9 @@ interval=30
 
 # PulseAudio volume indicator
 [volume-pulseaudio]
-command=~/.local/bin/i3blocks-volume-pulseaudio -F '${SYMB} ${VOL}%' -C "#d1d4e0" -c "#828CA1" -t 25 -T 75
+command=~/.local/bin/i3blocks-volume-pipewire -F '${SYMB} ${VOL}%' -C "#d1d4e0" -c "#828CA1" -t 25 -T 75
+#command=~/.local/bin/i3blocks-volume-pulseaudio -F '${SYMB} ${VOL}%' -C "#d1d4e0" -c "#828CA1" -t 25 -T 75
 interval=once
-#command=~/.local/bin/i3blocks-volume-pulseaudio -S -F '${SYMB} ${VOL}%' -C "#d1d4e0" -c "#828CA1" -t 25 -T 75
 #interval=persist
 signal=10
 

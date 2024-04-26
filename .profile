@@ -26,6 +26,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [ -d "$HOME/.local/share/gem/ruby/3.1.0/bin" ] ; then
+    PATH="$HOME/.local/share/gem/ruby/3.1.0/bin:$PATH"
+fi
+
 PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
 # libvirt

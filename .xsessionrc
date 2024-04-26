@@ -34,4 +34,4 @@ smart-notifier &
 $HOME/.screenlayout/auto.sh
 
 # Launch i3
-#exec i3
+exec i3

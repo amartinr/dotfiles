@@ -11,6 +11,7 @@ new_window normal
 
 default_floating_border pixel 1
 for_window [class="^Termite|^Terminator|Xfce4-terminal|URxvt"] border pixel 1
+for_window [class="^Brave-browser|^firefox"] border pixel 0
 bindsym Control+Shift+x [class="^.*"] border toggle
 
 # enable composition
