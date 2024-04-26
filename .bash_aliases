@@ -1,0 +1,7 @@
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias vi='vi -i NONE'
+alias vim='vim -i NONE'
+alias filmin='/usr/bin/chromium-browser --app="https://www.filmin.es/"'
+alias man='dman'

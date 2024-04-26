@@ -1,0 +1,90 @@
+! Tango color scheme
+! ------------------
+URxvt*foreground:       #eeeeec
+!URxvt*background:       #000000
+URxvt*cursorColor:      #8ae234
+URxvt*colorUL:          #8ae234
+URxvt*underlineColor:   #92659a
+! - Aluminium -
+URxvt*color0:           #2e3436
+URxvt*color8:           #888A85
+! - Scariet Red -
+URxvt*color1:           #cc0000
+URxvt*color9:           #ef2929
+! - Chameleon -
+URxvt*color2:           #4e9a06
+URxvt*color10:          #8ae234
+! - Butter -
+URxvt*color3:           #edd400
+URxvt*color11:          #fce94f
+! - Sky Blue -
+URxvt*color4:           #3465a4
+URxvt*color12:          #729fcf
+! - Plum -
+URxvt*color5:           #92659a
+URxvt*color13:          #c19fbe
+! - Cyan -
+URxvt*color6:           #07c7ca
+URxvt*color14:          #63e9e9
+! - Aluminium 2 -
+URxvt*color7:           #d3d7cf
+URxvt*color15:          #eeeeec
+
+! URxvt
+URxvt.font: xft:Monospace:pixelsize=18
+!URxvt.font: xft:DejaVuSansMono Nerd Font:pixelsize=18
+!URxvt.font: xft:LiterationSans Nerd Font Mono:pixelsize=18
+
+!URxvt.letterSpace: -1
+
+URxvt*scrollBar: false
+URxvt*internalBorder: 1
+
+URxvt*loginShell: false
+
+! end and home keys
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
+
+! ctrl + arrow keys
+URxvt.keysym.Control-Up:   \033[1;5A
+URxvt.keysym.Control-Down:    \033[1;5B
+URxvt.keysym.Control-Left:    \033[1;5D
+URxvt.keysym.Control-Right:    \033[1;5C
+
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+URxvt.resize-font.step: 4
+
+! scrollback
+URxvt*saveLines: 5000
+
+! unicode entry (https://emergent.unpythonic.net/01340900642)
+URxvt*perl-ext-common: default,unichr,matcher,-selection,keyboard-select
+
+! diable keycap insert picture mode
+URxvt.iso14755: true
+URxvt.iso14755_52: false
+
+! url-select
+URxvt.colorUL: #8fa1b3
+URxvt.url-launcher:       sensible-browser
+URxvt.keysym.C-Delete:    perl:matcher:last
+URxvt.keysym.M-Delete:    perl:matcher:list
+URxvt.matcher.button:     1
+URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+
+! keyboard-select
+URxvt.keysym.M-Escape:  perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard: true
+
+! transparency
+!URxvt.transparent:   true
+!URxvt.shading:       10
+!URxvt.tintColor:     black
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0000/ffff

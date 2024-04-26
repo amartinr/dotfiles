@@ -1,0 +1,12 @@
+xset b off
+xset s blank
+xset s 180 300
+
+systemctl --user import-environment PATH DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+systemctl --no-block --user start xsession.target
+
+#matchbox-window-manager -use_titlebar no &
+#/usr/bin/chromium-browser --app="https://www.duckduckgo.com/"
+
+export XDG_CURRENT_DESKTOP=i3
+exec i3
