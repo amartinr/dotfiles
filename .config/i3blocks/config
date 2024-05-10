@@ -126,11 +126,19 @@ signal=11
 # The second parameter overrides the mixer selection
 # See the script for details.
 
-[volume]
+#[volume]
+#label=VOL
+#instance=Master
+#interval=once
+#signal=10
+
+#if you prefer updating only when signaled
+[volume-pipewire]
 label=VOL
-instance=Master
+command=volume-pipewire
 interval=once
 signal=10
+
 
 # Date Time
 #

@@ -9,4 +9,5 @@ systemctl --no-block --user start xsession.target
 #/usr/bin/chromium-browser --app="https://www.duckduckgo.com/"
 
 export XDG_CURRENT_DESKTOP=i3
+. ~/.profile
 exec i3

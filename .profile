@@ -26,11 +26,18 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-LESSHISTFILE=/dev/null
-LESSHISTSIZE=0
-HTOPRC=/dev/null
+export LESSHISTFILE=/dev/null
+export LESSHISTSIZE=0
+export HTOPRC=/dev/null
 
-MAILCHECK=60
+export MAILCHECK=60
+
+# i3blocks variables
+export AUDIO_HIGH_SYMBOL=''
+export AUDIO_MED_SYMBOL=''
+export AUDIO_LOW_SYMBOL=''
+#export MUTED_COLOR=''
+export LONG_FORMAT='${VOL}%'
 
 if [ $(tty) == "/dev/tty1" ]; then
     startx >& /dev/null
