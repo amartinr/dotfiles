@@ -19,28 +19,37 @@ def on_window_new(i3, event):
     width = 1360
     height = 920
 
-    if event.container.window_class not in class_terminals | class_editors and wc_count <= 1:
+    #if event.container.window_class not in class_terminals | class_editors and wc_count <= 1:
+    if event.container.window_class not in class_terminals:
         for leaf in leaves:
+            parent = leaf.parent
+            print("New leaf: {0} ({1}) [{2}]".format(leaf.window_class, leaf.window_role, wc_count))
+
+            if event.container.window_role == "bubble":
+                print("Toggling float for window {0}".format(event.container.window_role))
+                event.container.command('floating toggle')
+                break
+
             if event.container.window_class in leaf.window_class:
                 wc_count = wc_count + 1
+
             if wc_count > 1:         
                 print()
-                print("== PARENT == class: {0}, instance: {1}, title: {2}, role: {3}".format(event.container.window_class,
-                      event.container.window_instance,
-                      event.container.window_title, event.container.window_role))
+                print("== PARENT == class: {0}, instance: {1}, title: {2}, role: {3}".format(parent.window_class, parent.window_instance, parent.window_title, parent.window_role))
                 print("== LEAF == class: {0}, instance: {1}, title: {2}, role: {3}".format(leaf.window_class, leaf.window_instance, leaf.window_title, leaf.window_role))
                 print() 
 
                 if event.container.window_role == "Dialog":
                     print("Toggling float for window {0}".format(event.container.window_title))
-                    event.container.command('floating toggle')
-                    event.container.command('move position center')
-                elif event.container.window_role not in { 'Dialog', 'browser', None}:
-                    print("Toggling float and resizing window {0} (role: {1})".format(event.container.window_title, event.container.window_role))
-                    resize_command = 'resize set {0} {1}'.format(width, height)
-                    event.container.command('floating toggle')
-                    #event.container.command(resize_command)
-                    event.container.command('move position center')
+                    parent.command('floating toggle')
+                    parent.command('move position center')
+                    break
+                #else:
+                #    print("Toggling float and resizing window {0} (role: {1})".format(event.container.window_title, event.container.window_role))
+                #   resize_command = 'resize set {0} {1}'.format(width, height)
+                #   event.container.command('floating toggle')
+                #   event.container.command('move position center')
+                #   break
 
 
 # Subscribe to events
