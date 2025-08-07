@@ -15,7 +15,7 @@ for_window [class="^Brave-browser|^firefox"] border pixel 0
 bindsym Control+Shift+x [class="^.*"] border toggle
 
 # enable composition
-exec --no-startup-id compton -b
+exec --no-startup-id picom -b
 
 # wallpaper
 set $wallpaper ~/.local/share/backgrounds/1920x1080.png
